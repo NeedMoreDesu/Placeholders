@@ -1,6 +1,6 @@
 //
 //  AnyView.swift
-//  Tablevc
+//  Containers
 //
 //  Created by Oleksii Horishnii on 1/26/18.
 //  Copyright © 2018 Oleksii Horishnii. All rights reserved.
@@ -17,7 +17,8 @@ protocol AnyView {
 
 extension UIView: AnyView {
     func add(to: UIViewController, into: UIView) {
-        view.addSubview(self)
+        into.addSubview(self)
+        ContainersUtils.addContainerConstraints(container: into, view: self)
     }
     
     func remove() {
@@ -32,8 +33,9 @@ extension UIView: AnyView {
 extension UIViewController: AnyView {
     func add(to: UIViewController, into: UIView) {
         to.addChildViewController(self)
-        self.view.bounds = into.bounds                 //change to constraints later
+        self.view.bounds = into.bounds
         into.addSubview(self.view)
+        ContainersUtils.addContainerConstraints(container: into, view: self.view)
         self.didMove(toParentViewController: to)
     }
     
