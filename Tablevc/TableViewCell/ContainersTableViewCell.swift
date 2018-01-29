@@ -11,14 +11,14 @@ import UIKit
 
 class ContainersTableViewCell: UITableViewCell {
     //MARK: cell creation
-    class func reuseCell(tableView: UITableView, reuseID: String, indexPath: IndexPath) -> ContainersTableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: reuseID, for: indexPath) as! ContainersTableViewCell
-        cell.tableView = tableView
+    class func reuseCell(cell: UITableViewCell) -> ContainersTableViewCell {
+        let cell = cell as! ContainersTableViewCell
+//        cell.tableView = tableView
 
         return cell
     }
-    class func registerReuseId(reuseId: String, tableView: UITableView) {
-        let type = VCSTableViewCell.self
+    override static func registerReuseId(reuseId: String, tableView: UITableView) {
+        let type = ContainersTableViewCell.self
         let bundle = Bundle(for: type)
         let nib = UINib(nibName: "ContainersTableViewCell", bundle: bundle)
         tableView.register(nib, forCellReuseIdentifier: reuseId)

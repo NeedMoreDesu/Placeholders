@@ -9,10 +9,22 @@
 import Foundation
 import UIKit
 
+public struct TableViewCellGenerator {
+    var cellType: AnyTableViewCell.Type
+    var reuseId: String
+    
+    func registerReuseId(tableView: UITableView) {
+        self.cellType.registerReuseId(reuseId: reuseId, tableView: tableView)
+    }
+    func reuseCell(cell: UITableViewCell) -> AnyTableViewCell {
+        return self.cellType.reuseCell(cell: cell)
+    }
+}
+
 public protocol TableContents {
     func sections() -> Int
     func rows(inSection: Int) -> Int
-    func reuseId(path: IndexPath) -> String
-    func updateCell(path: IndexPath, cell: AnyCell)
+    func generator(path: IndexPath) -> TableViewCellGenerator
+    func updateCell(path: IndexPath, cell: AnyTableViewCell)
 }
 

@@ -67,12 +67,10 @@ open class VCSTableVC: UITableViewController, TableUpdateDelegate {
     //MARK:- outlets
     
     //MARK:- internal variables
-    let mainReuseId = "__main_reuse_id"
+    var reuseIds = Set<String>()
     
     //MARK:- UI
     func setupUI() {
-        self.registerReuseId(reuseId: mainReuseId)
-
         self.tableView?.rowHeight = UITableViewAutomaticDimension
 
         self.updateUI()
@@ -84,20 +82,7 @@ open class VCSTableVC: UITableViewController, TableUpdateDelegate {
     }
     
     //MARK:- actions
-    
-    //MARK:- inner
-    var reuseIds = Set<String>()
-    func registerReuseId(reuseId: String) {
-        if (self.reuseIds.contains(reuseId)) {
-            return
-        }
-        let type = VCSTableViewCell.self
-        let bundle = Bundle(for: type)
-        let nib = UINib(nibName: "VSCTableViewCell", bundle: bundle)
-        self.tableView.register(nib, forCellReuseIdentifier: reuseId)
-        self.reuseIds.insert(reuseId)
-    }
-    
+
     //MARK:- tableView delegate
     override open func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return CGFloat(self.estimatedHeight)
@@ -113,13 +98,14 @@ open class VCSTableVC: UITableViewController, TableUpdateDelegate {
     }
     
     override open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell: VCSTableViewCell!
-        
-        let reuseId = self.tableContents.reuseId(path: indexPath)
-        self.registerReuseId(reuseId: reuseId)
-        cell = VCSTableViewCell.create(tableView: tableView, reuseID: reuseId, indexPath: indexPath)
-        self.tableContents.updateCell(path: indexPath, cell: cell)
-        
+        let generator = self.tableContents.generator(path: indexPath)
+        if (!self.reuseIds.contains(generator.reuseId)) {
+            generator.registerReuseId(tableView: tableView)
+            self.reuseIds.insert(generator.reuseId)
+        }
+        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: generator.reuseId, for: indexPath)
+        let anyCell = generator.reuseCell(cell: cell)
+        self.tableContents.updateCell(path: indexPath, cell: anyCell)
         return cell
     }
 }

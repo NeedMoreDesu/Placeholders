@@ -80,38 +80,38 @@ class VCSUtils {
         vc.removeFromParentViewController()
     }
     
-    class func createVC<Type>(storyboardId: String, vcId: String) throws -> Type {
-        if (storyboardId == "") {
-            throw VCSError.storyboardIdIsEmpty
-        }
-        if (vcId == "") {
-            throw VCSError.vcIdIsEmpty
-        }
-        var storyboard: UIStoryboard!
-        do {
-            try VCSObjC.catchException({
-                let type = Type.self as! AnyClass
-                let bundle = Bundle(for: type)
-                storyboard = UIStoryboard.init(name: storyboardId, bundle: bundle)
-            })
-        } catch _ {
-            throw VCSError.wrongStoryboardId
-        }
-        var vc: UIViewController!
-        do {
-            try VCSObjC.catchException({
-                vc = storyboard.instantiateViewController(withIdentifier: vcId)
-            })
-        } catch _ {
-            throw VCSError.wrongVcId
-        }
-        
-        if let vc = vc as? Type {
-            return vc
-        } else {
-            throw VCSError.viewControllerTypeMismatch
-        }
-    }
+//    class func createVC<Type>(storyboardId: String, vcId: String) throws -> Type {
+//        if (storyboardId == "") {
+//            throw VCSError.storyboardIdIsEmpty
+//        }
+//        if (vcId == "") {
+//            throw VCSError.vcIdIsEmpty
+//        }
+//        var storyboard: UIStoryboard!
+//        do {
+//            try VCSObjC.catchException({
+//                let type = Type.self as! AnyClass
+//                let bundle = Bundle(for: type)
+//                storyboard = UIStoryboard.init(name: storyboardId, bundle: bundle)
+//            })
+//        } catch _ {
+//            throw VCSError.wrongStoryboardId
+//        }
+//        var vc: UIViewController!
+//        do {
+//            try VCSObjC.catchException({
+//                vc = storyboard.instantiateViewController(withIdentifier: vcId)
+//            })
+//        } catch _ {
+//            throw VCSError.wrongVcId
+//        }
+//        
+//        if let vc = vc as? Type {
+//            return vc
+//        } else {
+//            throw VCSError.viewControllerTypeMismatch
+//        }
+//    }
     
     class func afterDelay(seconds: Double, fn: @escaping (() -> ())) {
         DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {

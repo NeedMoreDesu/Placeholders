@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+@objc
 public protocol AnyView {
     func add(to: UIViewController?, into: UIView)
     func remove()
@@ -43,9 +44,5 @@ extension UIViewController: AnyView {
         self.willMove(toParentViewController: nil)
         self.view.removeFromSuperview()
         self.removeFromParentViewController()
-    }
-
-    public var view: UIView {
-        return self.view
     }
 }

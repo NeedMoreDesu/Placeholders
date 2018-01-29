@@ -9,29 +9,39 @@
 import Foundation
 import UIKit
 
+@objc
 public protocol AnyTableViewCell {
-    func registerReuseId(reuseId: String, tableView: UITableView)
-    func reuseCell(cell: UITableViewCell) -> AnyTableViewCell?
+    static func registerReuseId(reuseId: String, tableView: UITableView)
+    static func reuseCell(cell: UITableViewCell) -> AnyTableViewCell
+    static func create() -> AnyView?
+}
+
+extension AnyTableViewCell {
+    @objc public static func create() -> AnyView? {
+        return nil
+    }
 }
 
 extension UIViewController: AnyTableViewCell {
-    public func registerReuseId(reuseId: String, tableView: UITableView) {
-        let type = VCSTableViewCell.self
-        let bundle = Bundle(for: type)
-        let nib = UINib(nibName: "VSCTableViewCell", bundle: bundle)
-        tableView.register(nib, forCellReuseIdentifier: reuseId)
+    public static func registerReuseId(reuseId: String, tableView: UITableView) {
+        ContainersTableViewCell.registerReuseId(reuseId: reuseId, tableView: tableView)
     }
     
-    public func reuseCell(cell: UITableViewCell) -> AnyTableViewCell? {
-        return (cell as? VSCTableViewCell).insertedVC
+    public static func reuseCell(cell: UITableViewCell) -> AnyTableViewCell {
+        let cell = ContainersTableViewCell.reuseCell(cell: cell)
+        cell.insertedView = cell.insertedView ?? self.create()
+        return cell.insertedView
     }
 }
 
 extension UIView: AnyTableViewCell {
-    public func registerReuseId(reuseId: String, tableView: UITableView) {
-        let type = VCSTableViewCell.self
-        let bundle = Bundle(for: type)
-        let nib = UINib(nibName: "VSCTableViewCell", bundle: bundle)
-        tableView.register(nib, forCellReuseIdentifier: reuseId)
+    public static func registerReuseId(reuseId: String, tableView: UITableView) {
+        ContainersTableViewCell.registerReuseId(reuseId: reuseId, tableView: tableView)
+    }
+    
+    public static func reuseCell(cell: UITableViewCell) -> AnyTableViewCell {
+        let cell = ContainersTableViewCell.reuseCell(cell: cell)
+        cell.insertedView = cell.insertedView ?? self.create()
+        return cell.insertedView
     }
 }
