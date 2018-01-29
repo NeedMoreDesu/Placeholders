@@ -12,15 +12,15 @@
 		675CBFF9201B60A700D97072 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 675CBFF7201B60A700D97072 /* Main.storyboard */; };
 		675CBFFB201B60A700D97072 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 675CBFFA201B60A700D97072 /* Assets.xcassets */; };
 		675CBFFE201B60A700D97072 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 675CBFFC201B60A700D97072 /* LaunchScreen.storyboard */; };
-		675CC006201B611100D97072 /* AnyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675CC005201B611100D97072 /* AnyCell.swift */; };
+		675CC006201B611100D97072 /* AnyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675CC005201B611100D97072 /* AnyTableViewCell.swift */; };
 		675CC008201B61A800D97072 /* AnyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675CC007201B61A800D97072 /* AnyView.swift */; };
 		675CC00A201F581800D97072 /* TableContents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675CC009201F581800D97072 /* TableContents.swift */; };
 		A1FD5728201CDB14006C25C1 /* ContainersUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FD5727201CDB14006C25C1 /* ContainersUtils.swift */; };
 		A1FD572C201CDF1D006C25C1 /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FD572B201CDF1D006C25C1 /* ContainerView.swift */; };
-		A1FD5731201E0100006C25C1 /* VCSTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FD572D201E0100006C25C1 /* VCSTableViewCell.swift */; };
+		A1FD5731201E0100006C25C1 /* ContainersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FD572D201E0100006C25C1 /* ContainersTableViewCell.swift */; };
 		A1FD5732201E0100006C25C1 /* VCSTableView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1FD572E201E0100006C25C1 /* VCSTableView.storyboard */; };
 		A1FD5733201E0100006C25C1 /* VCSTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FD572F201E0100006C25C1 /* VCSTableVC.swift */; };
-		A1FD5734201E0100006C25C1 /* VSCTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1FD5730201E0100006C25C1 /* VSCTableViewCell.xib */; };
+		A1FD5734201E0100006C25C1 /* ContainersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1FD5730201E0100006C25C1 /* ContainersTableViewCell.xib */; };
 		A1FD573D201E015F006C25C1 /* VCSObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FD5738201E015F006C25C1 /* VCSObjC.m */; };
 		A1FD573E201E015F006C25C1 /* VCSController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FD5739201E015F006C25C1 /* VCSController.swift */; };
 		A1FD573F201E015F006C25C1 /* VCSUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FD573A201E015F006C25C1 /* VCSUtils.swift */; };
@@ -36,15 +36,15 @@
 		675CBFFA201B60A700D97072 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		675CBFFD201B60A700D97072 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		675CBFFF201B60A700D97072 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		675CC005201B611100D97072 /* AnyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyCell.swift; sourceTree = "<group>"; };
+		675CC005201B611100D97072 /* AnyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyTableViewCell.swift; sourceTree = "<group>"; };
 		675CC007201B61A800D97072 /* AnyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyView.swift; sourceTree = "<group>"; };
 		675CC009201F581800D97072 /* TableContents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableContents.swift; sourceTree = "<group>"; };
 		A1FD5727201CDB14006C25C1 /* ContainersUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainersUtils.swift; sourceTree = "<group>"; };
 		A1FD572B201CDF1D006C25C1 /* ContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
-		A1FD572D201E0100006C25C1 /* VCSTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCSTableViewCell.swift; sourceTree = "<group>"; };
+		A1FD572D201E0100006C25C1 /* ContainersTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainersTableViewCell.swift; sourceTree = "<group>"; };
 		A1FD572E201E0100006C25C1 /* VCSTableView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = VCSTableView.storyboard; sourceTree = "<group>"; };
 		A1FD572F201E0100006C25C1 /* VCSTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCSTableVC.swift; sourceTree = "<group>"; };
-		A1FD5730201E0100006C25C1 /* VSCTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VSCTableViewCell.xib; sourceTree = "<group>"; };
+		A1FD5730201E0100006C25C1 /* ContainersTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContainersTableViewCell.xib; sourceTree = "<group>"; };
 		A1FD5736201E015E006C25C1 /* Tablevc-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tablevc-Bridging-Header.h"; sourceTree = "<group>"; };
 		A1FD5737201E015F006C25C1 /* VCSObjC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCSObjC.h; sourceTree = "<group>"; };
 		A1FD5738201E015F006C25C1 /* VCSObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCSObjC.m; sourceTree = "<group>"; };
@@ -85,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				A1FD572A201CDCE3006C25C1 /* TableViewContainer */,
+				675CC00B201F6AE500D97072 /* TableViewCell */,
 				A1FD5729201CDCC7006C25C1 /* ViewContainer */,
 				675CBFF3201B60A700D97072 /* AppDelegate.swift */,
 				A1FD5735201E0148006C25C1 /* old */,
@@ -96,6 +97,15 @@
 				675CBFFF201B60A700D97072 /* Info.plist */,
 			);
 			path = Tablevc;
+			sourceTree = "<group>";
+		};
+		675CC00B201F6AE500D97072 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				A1FD5730201E0100006C25C1 /* ContainersTableViewCell.xib */,
+				A1FD572D201E0100006C25C1 /* ContainersTableViewCell.swift */,
+			);
+			path = TableViewCell;
 			sourceTree = "<group>";
 		};
 		A1FD5729201CDCC7006C25C1 /* ViewContainer */ = {
@@ -112,9 +122,7 @@
 			children = (
 				A1FD572E201E0100006C25C1 /* VCSTableView.storyboard */,
 				A1FD572F201E0100006C25C1 /* VCSTableVC.swift */,
-				A1FD5730201E0100006C25C1 /* VSCTableViewCell.xib */,
-				A1FD572D201E0100006C25C1 /* VCSTableViewCell.swift */,
-				675CC005201B611100D97072 /* AnyCell.swift */,
+				675CC005201B611100D97072 /* AnyTableViewCell.swift */,
 				675CC009201F581800D97072 /* TableContents.swift */,
 			);
 			path = TableViewContainer;
@@ -198,7 +206,7 @@
 				A1FD5732201E0100006C25C1 /* VCSTableView.storyboard in Resources */,
 				675CBFFB201B60A700D97072 /* Assets.xcassets in Resources */,
 				675CBFF9201B60A700D97072 /* Main.storyboard in Resources */,
-				A1FD5734201E0100006C25C1 /* VSCTableViewCell.xib in Resources */,
+				A1FD5734201E0100006C25C1 /* ContainersTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,8 +226,8 @@
 				A1FD5741201E015F006C25C1 /* VCSViewOrVC.swift in Sources */,
 				675CBFF6201B60A700D97072 /* ViewController.swift in Sources */,
 				675CBFF4201B60A700D97072 /* AppDelegate.swift in Sources */,
-				675CC006201B611100D97072 /* AnyCell.swift in Sources */,
-				A1FD5731201E0100006C25C1 /* VCSTableViewCell.swift in Sources */,
+				675CC006201B611100D97072 /* AnyTableViewCell.swift in Sources */,
+				A1FD5731201E0100006C25C1 /* ContainersTableViewCell.swift in Sources */,
 				A1FD5728201CDB14006C25C1 /* ContainersUtils.swift in Sources */,
 				675CC008201B61A800D97072 /* AnyView.swift in Sources */,
 				A1FD572C201CDF1D006C25C1 /* ContainerView.swift in Sources */,

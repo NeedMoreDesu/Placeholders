@@ -9,43 +9,43 @@
 import Foundation
 import UIKit
 
-protocol AnyView {
-    func add(to: UIViewController, into: UIView)
+public protocol AnyView {
+    func add(to: UIViewController?, into: UIView)
     func remove()
     var view: UIView { get }
 }
 
 extension UIView: AnyView {
-    func add(to: UIViewController, into: UIView) {
+    public func add(to: UIViewController?, into: UIView) {
         into.addSubview(self)
         ContainersUtils.addContainerConstraints(container: into, view: self)
     }
     
-    func remove() {
+    public func remove() {
         self.removeFromSuperview()
     }
     
-    var view: UIView {
+    public var view: UIView {
         return self
     }
 }
 
 extension UIViewController: AnyView {
-    func add(to: UIViewController, into: UIView) {
-        to.addChildViewController(self)
+    public func add(to: UIViewController?, into: UIView) {
+        to?.addChildViewController(self)
         self.view.bounds = into.bounds
         into.addSubview(self.view)
         ContainersUtils.addContainerConstraints(container: into, view: self.view)
         self.didMove(toParentViewController: to)
     }
     
-    func remove() {
+    public func remove() {
         self.willMove(toParentViewController: nil)
         self.view.removeFromSuperview()
         self.removeFromParentViewController()
     }
 
-    var view: UIView {
+    public var view: UIView {
         return self.view
     }
 }

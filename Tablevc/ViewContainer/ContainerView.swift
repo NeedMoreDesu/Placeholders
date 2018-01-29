@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 open class ContainerView: UIView {
-    var controllingVC: UIViewController {
+    var controllingVC: UIViewController? {
         return ContainersUtils.controllingViewController(view: self)
     }
     
@@ -19,7 +19,7 @@ open class ContainerView: UIView {
             guard let newValue = self.insertedView else {
                 return
             }
-            if let oldValue = oldValue, newValue.equals(oldValue) {
+            if let oldValue = oldValue, newValue.view == oldValue.view {
                 return
             }
             oldValue?.remove()
@@ -27,7 +27,7 @@ open class ContainerView: UIView {
         }
     }
     open func vc<Type>(type: Type.Type? = nil) -> Type {
-        return self.insertedView?.mainVC as! Type
+        return self.insertedView as! Type
     }
     
     deinit {

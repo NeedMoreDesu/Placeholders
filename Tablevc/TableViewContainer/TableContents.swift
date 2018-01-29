@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-open protocol TableContents {
+public protocol TableContents {
     func sections() -> Int
     func rows(inSection: Int) -> Int
     func reuseId(path: IndexPath) -> String

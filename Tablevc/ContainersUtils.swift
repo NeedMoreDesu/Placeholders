@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class ContainersUtils {
-    class func controllingViewController(view: UIView) -> UIViewController? {
+    class func controllingViewController(view: UIView?) -> UIViewController? {
         var responder: UIResponder? = view
         while !(responder is UIViewController) {
             responder = responder?.next
