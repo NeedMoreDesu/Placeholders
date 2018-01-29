@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-protocol AnyCell {
+open protocol AnyCell {
     
 }
 

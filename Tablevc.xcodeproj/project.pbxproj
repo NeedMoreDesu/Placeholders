@@ -14,6 +14,7 @@
 		675CBFFE201B60A700D97072 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 675CBFFC201B60A700D97072 /* LaunchScreen.storyboard */; };
 		675CC006201B611100D97072 /* AnyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675CC005201B611100D97072 /* AnyCell.swift */; };
 		675CC008201B61A800D97072 /* AnyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675CC007201B61A800D97072 /* AnyView.swift */; };
+		675CC00A201F581800D97072 /* TableContents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675CC009201F581800D97072 /* TableContents.swift */; };
 		A1FD5728201CDB14006C25C1 /* ContainersUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FD5727201CDB14006C25C1 /* ContainersUtils.swift */; };
 		A1FD572C201CDF1D006C25C1 /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FD572B201CDF1D006C25C1 /* ContainerView.swift */; };
 		A1FD5731201E0100006C25C1 /* VCSTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FD572D201E0100006C25C1 /* VCSTableViewCell.swift */; };
@@ -37,6 +38,7 @@
 		675CBFFF201B60A700D97072 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		675CC005201B611100D97072 /* AnyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyCell.swift; sourceTree = "<group>"; };
 		675CC007201B61A800D97072 /* AnyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyView.swift; sourceTree = "<group>"; };
+		675CC009201F581800D97072 /* TableContents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableContents.swift; sourceTree = "<group>"; };
 		A1FD5727201CDB14006C25C1 /* ContainersUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainersUtils.swift; sourceTree = "<group>"; };
 		A1FD572B201CDF1D006C25C1 /* ContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
 		A1FD572D201E0100006C25C1 /* VCSTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCSTableViewCell.swift; sourceTree = "<group>"; };
@@ -108,11 +110,12 @@
 		A1FD572A201CDCE3006C25C1 /* TableViewContainer */ = {
 			isa = PBXGroup;
 			children = (
-				A1FD572F201E0100006C25C1 /* VCSTableVC.swift */,
 				A1FD572E201E0100006C25C1 /* VCSTableView.storyboard */,
-				A1FD572D201E0100006C25C1 /* VCSTableViewCell.swift */,
+				A1FD572F201E0100006C25C1 /* VCSTableVC.swift */,
 				A1FD5730201E0100006C25C1 /* VSCTableViewCell.xib */,
+				A1FD572D201E0100006C25C1 /* VCSTableViewCell.swift */,
 				675CC005201B611100D97072 /* AnyCell.swift */,
+				675CC009201F581800D97072 /* TableContents.swift */,
 			);
 			path = TableViewContainer;
 			sourceTree = "<group>";
@@ -206,6 +209,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				675CC00A201F581800D97072 /* TableContents.swift in Sources */,
 				A1FD573E201E015F006C25C1 /* VCSController.swift in Sources */,
 				A1FD573D201E015F006C25C1 /* VCSObjC.m in Sources */,
 				A1FD5733201E0100006C25C1 /* VCSTableVC.swift in Sources */,
