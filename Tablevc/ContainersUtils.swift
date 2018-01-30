@@ -61,4 +61,10 @@ class ContainersUtils {
         
         return vc as! Type
     }
+    
+    class func afterDelay(seconds: Double, fn: @escaping (() -> ())) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+            fn()
+        }
+    }
 }

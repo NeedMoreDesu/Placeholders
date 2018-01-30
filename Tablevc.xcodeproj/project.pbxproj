@@ -20,11 +20,6 @@
 		A1FD5732201E0100006C25C1 /* VCSTableView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1FD572E201E0100006C25C1 /* VCSTableView.storyboard */; };
 		A1FD5733201E0100006C25C1 /* VCSTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FD572F201E0100006C25C1 /* VCSTableVC.swift */; };
 		A1FD5734201E0100006C25C1 /* ContainersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1FD5730201E0100006C25C1 /* ContainersTableViewCell.xib */; };
-		A1FD573D201E015F006C25C1 /* VCSObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FD5738201E015F006C25C1 /* VCSObjC.m */; };
-		A1FD573E201E015F006C25C1 /* VCSController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FD5739201E015F006C25C1 /* VCSController.swift */; };
-		A1FD573F201E015F006C25C1 /* VCSUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FD573A201E015F006C25C1 /* VCSUtils.swift */; };
-		A1FD5740201E015F006C25C1 /* VCSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FD573B201E015F006C25C1 /* VCSError.swift */; };
-		A1FD5741201E015F006C25C1 /* VCSViewOrVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FD573C201E015F006C25C1 /* VCSViewOrVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,13 +38,6 @@
 		A1FD572E201E0100006C25C1 /* VCSTableView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = VCSTableView.storyboard; sourceTree = "<group>"; };
 		A1FD572F201E0100006C25C1 /* VCSTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCSTableVC.swift; sourceTree = "<group>"; };
 		A1FD5730201E0100006C25C1 /* ContainersTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContainersTableViewCell.xib; sourceTree = "<group>"; };
-		A1FD5736201E015E006C25C1 /* Tablevc-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tablevc-Bridging-Header.h"; sourceTree = "<group>"; };
-		A1FD5737201E015F006C25C1 /* VCSObjC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCSObjC.h; sourceTree = "<group>"; };
-		A1FD5738201E015F006C25C1 /* VCSObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCSObjC.m; sourceTree = "<group>"; };
-		A1FD5739201E015F006C25C1 /* VCSController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCSController.swift; sourceTree = "<group>"; };
-		A1FD573A201E015F006C25C1 /* VCSUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCSUtils.swift; sourceTree = "<group>"; };
-		A1FD573B201E015F006C25C1 /* VCSError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCSError.swift; sourceTree = "<group>"; };
-		A1FD573C201E015F006C25C1 /* VCSViewOrVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCSViewOrVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,13 +70,12 @@
 		675CBFF2201B60A700D97072 /* Tablevc */ = {
 			isa = PBXGroup;
 			children = (
+				A1FD5727201CDB14006C25C1 /* ContainersUtils.swift */,
 				A1FD572A201CDCE3006C25C1 /* TableViewContainer */,
 				675CC00B201F6AE500D97072 /* TableViewCell */,
 				A1FD5729201CDCC7006C25C1 /* ViewContainer */,
 				675CBFF3201B60A700D97072 /* AppDelegate.swift */,
-				A1FD5735201E0148006C25C1 /* old */,
 				675CBFF5201B60A700D97072 /* ViewController.swift */,
-				A1FD5727201CDB14006C25C1 /* ContainersUtils.swift */,
 				675CBFF7201B60A700D97072 /* Main.storyboard */,
 				675CBFFA201B60A700D97072 /* Assets.xcassets */,
 				675CBFFC201B60A700D97072 /* LaunchScreen.storyboard */,
@@ -123,20 +110,6 @@
 				675CC009201F581800D97072 /* TableContents.swift */,
 			);
 			path = TableViewContainer;
-			sourceTree = "<group>";
-		};
-		A1FD5735201E0148006C25C1 /* old */ = {
-			isa = PBXGroup;
-			children = (
-				A1FD5739201E015F006C25C1 /* VCSController.swift */,
-				A1FD573B201E015F006C25C1 /* VCSError.swift */,
-				A1FD5737201E015F006C25C1 /* VCSObjC.h */,
-				A1FD5738201E015F006C25C1 /* VCSObjC.m */,
-				A1FD573A201E015F006C25C1 /* VCSUtils.swift */,
-				A1FD573C201E015F006C25C1 /* VCSViewOrVC.swift */,
-				A1FD5736201E015E006C25C1 /* Tablevc-Bridging-Header.h */,
-			);
-			path = old;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,12 +188,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				675CC00A201F581800D97072 /* TableContents.swift in Sources */,
-				A1FD573E201E015F006C25C1 /* VCSController.swift in Sources */,
-				A1FD573D201E015F006C25C1 /* VCSObjC.m in Sources */,
 				A1FD5733201E0100006C25C1 /* VCSTableVC.swift in Sources */,
-				A1FD5740201E015F006C25C1 /* VCSError.swift in Sources */,
-				A1FD573F201E015F006C25C1 /* VCSUtils.swift in Sources */,
-				A1FD5741201E015F006C25C1 /* VCSViewOrVC.swift in Sources */,
 				675CBFF6201B60A700D97072 /* ViewController.swift in Sources */,
 				675CBFF4201B60A700D97072 /* AppDelegate.swift in Sources */,
 				A1FD5731201E0100006C25C1 /* ContainersTableViewCell.swift in Sources */,
@@ -369,7 +337,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.testestest.Tablevc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Tablevc/old/Tablevc-Bridging-Header.h";
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -386,7 +355,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.testestest.Tablevc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Tablevc/old/Tablevc-Bridging-Header.h";
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
