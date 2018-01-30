@@ -94,7 +94,7 @@ open class VCSTableVC: UITableViewController, TableUpdateDelegate {
     
     //MARK:- tableView data source
     override open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.tableContents.rows(inSection: section)
+        return self.tableContents.rows(section: section)
     }
     
     override open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

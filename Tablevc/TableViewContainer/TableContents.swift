@@ -45,9 +45,14 @@ public enum TableViewCellGeneratorType {
     case xibCell(TableViewCellGeneratorType.Cell)
 }
 
-public struct TableViewCellGenerator {
+public class TableViewCellGenerator {
     let reuseId: String
     let type: TableViewCellGeneratorType
+    
+    init(reuseId: String, type: TableViewCellGeneratorType) {
+        self.reuseId = reuseId
+        self.type = type
+    }
     
     func registerReuseId(tableView: UITableView) {
         switch self.type {
@@ -80,7 +85,7 @@ public struct TableViewCellGenerator {
 
 public protocol TableContents {
     func sections() -> Int
-    func rows(inSection: Int) -> Int
+    func rows(section: Int) -> Int
     func generator(path: IndexPath) -> TableViewCellGenerator
 }
 
