@@ -18,13 +18,12 @@ class MyTableContents: TableContents {
     }
     
     func generator(path: IndexPath) -> TableViewCellGenerator {
-        return TableViewCellGenerator(reuseId: "main", type: .view(create: { () -> AnyView in
+        let viewGenerator = ViewGenerator(create: { () -> UILabel in
             return UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
-        }, update: { (anyView: AnyView, tableView: UITableView, indexPath: IndexPath) -> () in
-            if let label = anyView.view as? UILabel {
-                label.text = "tratata"
-            }
-        }))
+        }, update: { (label: UILabel, tableView: UITableView, indexPath: IndexPath) -> () in
+            label.text = "tratata"
+        })
+        return TableViewCellGenerator(reuseId: "main", type: .view(viewGenerator: viewGenerator))
     }
 }
 

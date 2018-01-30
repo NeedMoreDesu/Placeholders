@@ -9,8 +9,24 @@
 import Foundation
 import UIKit
 
+public struct ViewGenerator {
+    var create: (() -> AnyView)
+    var update: ((AnyView, UITableView, IndexPath) -> ())
+    
+    init<Type>(create: @escaping (() -> Type),
+               update: @escaping ((Type, UITableView, IndexPath) -> ()))
+        where Type: AnyView {
+        self.create = { () -> AnyView in
+            return create() as AnyView
+        }
+        self.update = { (anyView: AnyView, tableView: UITableView, indexPath: IndexPath) -> () in
+            update(anyView as! Type, tableView, indexPath)
+        }
+    }
+}
+
 public enum TableViewCellGeneratorType {
-    case view(create:(() -> AnyView), update: ((AnyView, UITableView, IndexPath) -> ()))
+    case view(viewGenerator: ViewGenerator)
     case staticView(get:((UITableView, IndexPath) -> AnyView))
     case xibCell(nib: UINib, update: ((UITableViewCell, UITableView, IndexPath) -> ()))
 }
@@ -21,7 +37,7 @@ public struct TableViewCellGenerator {
     
     func registerReuseId(tableView: UITableView) {
         switch self.type {
-        case .view(_, _), .staticView(_):
+        case .view(_), .staticView(_):
             ContainersTableViewCell.registerReuseId(reuseId: self.reuseId, tableView: tableView)
         case .xibCell(let nib, _):
             tableView.register(nib, forCellReuseIdentifier: reuseId)
@@ -29,13 +45,13 @@ public struct TableViewCellGenerator {
     }
     func updateCell(tableView: UITableView, cell: UITableViewCell, indexPath: IndexPath) {
         switch self.type {
-        case .view(let create, let update):
+        case .view(let generator):
             if let cell = cell as? ContainersTableViewCell {
                 if cell.insertedView == nil {
                     cell.tableView = tableView
-                    cell.insertedView = create()
+                    cell.insertedView = generator.create()
                 }
-                update(cell.insertedView!, tableView, indexPath)
+                generator.update(cell.insertedView!, tableView, indexPath)
             }
         case .staticView(let get):
             if let cell = cell as? ContainersTableViewCell {
