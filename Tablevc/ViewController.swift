@@ -20,7 +20,7 @@ class MyTableContents: TableContents {
     func generator(path: IndexPath) -> TableViewCellGenerator {
         let viewGenerator = TableViewCellGeneratorType.View(create: { () -> UILabel in
             return UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
-        }, update: { (label: UILabel, tableView: UITableView, indexPath: IndexPath) -> () in
+        }, update: { (label: UILabel, tableView: UITableView) -> () in
             label.text = "tratata"
         })
         return TableViewCellGenerator(reuseId: "main", type: .view(viewGenerator))
