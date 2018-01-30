@@ -8,11 +8,40 @@
 
 import UIKit
 
+class MyTableContents: TableContents {
+    func sections() -> Int {
+        return 1
+    }
+    
+    func rows(inSection: Int) -> Int {
+        return 13
+    }
+    
+    func generator(path: IndexPath) -> TableViewCellGenerator {
+        return TableViewCellGenerator(reuseId: "main", type: .view(create: { () -> AnyView in
+            return UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
+        }, update: { (anyView: AnyView, tableView: UITableView, indexPath: IndexPath) -> () in
+            if let label = anyView.view as? UILabel {
+                label.text = "tratata"
+            }
+        }))
+    }
+    
+    
+}
+
 class ViewController: UIViewController {
 
+    @IBOutlet weak var containerView: ContainerView!
+    var tableVC: VCSTableVC!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        self.tableVC = VCSTableVC.create(builderFn: { (vc) in
+            vc.tableContents = MyTableContents()
+        })
+        self.containerView.insertedView = self.tableVC
     }
 
     override func didReceiveMemoryWarning() {
