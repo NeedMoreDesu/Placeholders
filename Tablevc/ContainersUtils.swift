@@ -52,4 +52,13 @@ class ContainersUtils {
                            multiplier: 1.0,
                            constant: 0.0).isActive = true
     }
+    
+    class func createVC<Type>(storyboardId: String, vcId: String) -> Type {
+        let type = Type.self as! AnyClass
+        let bundle = Bundle(for: type)
+        let storyboard = UIStoryboard.init(name: storyboardId, bundle: bundle)
+        let vc = storyboard.instantiateViewController(withIdentifier: vcId)
+        
+        return vc as! Type
+    }
 }

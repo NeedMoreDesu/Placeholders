@@ -47,7 +47,7 @@ open class VCSTableVC: UITableViewController, TableUpdateDelegate {
     
     //MARK: VC creation
     open class func create(builderFn:((VCSTableVC) -> Void)? = nil) -> VCSTableVC {
-        let vc: VCSTableVC = try! VCSUtils.createVC(storyboardId: "VCSTableView", vcId: "VCSTableVC")
+        let vc: VCSTableVC = ContainersUtils.createVC(storyboardId: "VCSTableView", vcId: "VCSTableVC")
         builderFn?(vc)
         return vc
     }
@@ -99,13 +99,14 @@ open class VCSTableVC: UITableViewController, TableUpdateDelegate {
     
     override open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let generator = self.tableContents.generator(path: indexPath)
+        
         if (!self.reuseIds.contains(generator.reuseId)) {
             generator.registerReuseId(tableView: tableView)
             self.reuseIds.insert(generator.reuseId)
         }
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: generator.reuseId, for: indexPath)
-        let anyCell = generator.reuseCell(cell: cell)
-        self.tableContents.updateCell(path: indexPath, cell: anyCell)
+        generator.initializeCell(tableView: tableView, cell: cell)
+        generator.updateCell(tableView: tableView, cell: cell, indexPath: indexPath)
         return cell
     }
 }

@@ -11,13 +11,7 @@ import UIKit
 
 class ContainersTableViewCell: UITableViewCell {
     //MARK: cell creation
-    class func reuseCell(cell: UITableViewCell) -> ContainersTableViewCell {
-        let cell = cell as! ContainersTableViewCell
-//        cell.tableView = tableView
-
-        return cell
-    }
-    override static func registerReuseId(reuseId: String, tableView: UITableView) {
+    class func registerReuseId(reuseId: String, tableView: UITableView) {
         let type = ContainersTableViewCell.self
         let bundle = Bundle(for: type)
         let nib = UINib(nibName: "ContainersTableViewCell", bundle: bundle)
@@ -26,9 +20,8 @@ class ContainersTableViewCell: UITableViewCell {
     
     //MARK: public
     weak var tableView: UITableView?
-    weak var parentVC: UIViewController?
     var controllingVC: UIViewController? {
-        return self.parentVC ?? ContainersUtils.controllingViewController(view: self.tableView!)!
+        return ContainersUtils.controllingViewController(view: self.tableView!)!
     }
     
     open var insertedView: AnyView? {
