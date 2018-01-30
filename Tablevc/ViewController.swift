@@ -26,12 +26,9 @@ class MyTableContents: TableContents {
             }
         }))
     }
-    
-    
 }
 
 class ViewController: UIViewController {
-
     @IBOutlet weak var containerView: ContainerView!
     var tableVC: VCSTableVC!
     
@@ -43,12 +40,5 @@ class ViewController: UIViewController {
         })
         self.containerView.insertedView = self.tableVC
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
 }
 

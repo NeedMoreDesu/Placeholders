@@ -105,7 +105,6 @@ open class VCSTableVC: UITableViewController, TableUpdateDelegate {
             self.reuseIds.insert(generator.reuseId)
         }
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: generator.reuseId, for: indexPath)
-        generator.initializeCell(tableView: tableView, cell: cell)
         generator.updateCell(tableView: tableView, cell: cell, indexPath: indexPath)
         return cell
     }

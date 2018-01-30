@@ -11,6 +11,7 @@ import UIKit
 
 public enum TableViewCellGeneratorType {
     case view(create:(() -> AnyView), update: ((AnyView, UITableView, IndexPath) -> ()))
+    case staticView(get:((UITableView, IndexPath) -> AnyView))
     case xibCell(nib: UINib, update: ((UITableViewCell, UITableView, IndexPath) -> ()))
 }
 
@@ -20,29 +21,26 @@ public struct TableViewCellGenerator {
     
     func registerReuseId(tableView: UITableView) {
         switch self.type {
-        case .view(_, _):
+        case .view(_, _), .staticView(_):
             ContainersTableViewCell.registerReuseId(reuseId: self.reuseId, tableView: tableView)
         case .xibCell(let nib, _):
             tableView.register(nib, forCellReuseIdentifier: reuseId)
         }
     }
-    func initializeCell(tableView: UITableView, cell: UITableViewCell) {
-        switch self.type {
-        case .view(let create, _):
-            if let cell = cell as? ContainersTableViewCell {
-                cell.tableView = tableView
-                cell.insertedView = create()
-            }
-        default:
-            break
-        }
-    }
     func updateCell(tableView: UITableView, cell: UITableViewCell, indexPath: IndexPath) {
         switch self.type {
-        case .view(_, let update):
-            if let cell = cell as? ContainersTableViewCell,
-                let anyView = cell.insertedView {
-                update(anyView, tableView, indexPath)
+        case .view(let create, let update):
+            if let cell = cell as? ContainersTableViewCell {
+                if cell.insertedView == nil {
+                    cell.tableView = tableView
+                    cell.insertedView = create()
+                }
+                update(cell.insertedView!, tableView, indexPath)
+            }
+        case .staticView(let get):
+            if let cell = cell as? ContainersTableViewCell {
+                cell.tableView = tableView
+                cell.insertedView = get(tableView, indexPath)
             }
         case .xibCell(_, let update):
             update(cell, tableView, indexPath)
