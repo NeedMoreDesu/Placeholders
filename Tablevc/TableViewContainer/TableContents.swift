@@ -9,76 +9,47 @@
 import Foundation
 import UIKit
 
-public enum TableViewCellGeneratorType {
-    public struct View {
-        var create: (() -> AnyView)
-        var update: ((AnyView, UITableView) -> ())
-        
-        init<Type>(create: @escaping (() -> Type),
-                   update: @escaping ((Type, UITableView) -> ()))
-            where Type: AnyView {
-                self.create = { () -> AnyView in
-                    return create() as AnyView
-                }
-                self.update = { (anyView: AnyView, tableView: UITableView) -> () in
-                    update(anyView as! Type, tableView)
-                }
-        }
-    }
-    
-    public struct Cell {
-        var nib: UINib
-        var update: ((UITableViewCell, UITableView) -> ())
-        
-        init<Type>(nib: UINib,
-                   update: @escaping ((Type, UITableView) -> ()))
-            where Type: AnyView {
-                self.nib = nib
-                self.update = { (cell: UITableViewCell, tableView: UITableView) -> () in
-                    update(cell as! Type, tableView)
-                }
-        }
-    }
-    
-    case view(TableViewCellGeneratorType.View)
-    case staticView(get:((UITableView) -> AnyView))
-    case xibCell(TableViewCellGeneratorType.Cell)
+public protocol TableViewCellGenerator {
+    var reuseId: String { get }
+    func registerReuseId(tableView: UITableView)
+    func updateCell(cell: UITableViewCell, vc: UIViewController)
 }
 
-public class TableViewCellGenerator {
-    let reuseId: String
-    let type: TableViewCellGeneratorType
-    
-    init(reuseId: String, type: TableViewCellGeneratorType) {
-        self.reuseId = reuseId
-        self.type = type
+extension CellGenerator.View: TableViewCellGenerator {
+    public func registerReuseId(tableView: UITableView) {
+        ContainersTableViewCell.registerReuseId(reuseId: self.reuseId, tableView: tableView)
     }
     
-    func registerReuseId(tableView: UITableView) {
-        switch self.type {
-        case .view(_), .staticView(_):
-            ContainersTableViewCell.registerReuseId(reuseId: self.reuseId, tableView: tableView)
-        case .xibCell(let generator):
-            tableView.register(generator.nib, forCellReuseIdentifier: reuseId)
+    public func updateCell(cell: UITableViewCell, vc: UIViewController) {
+        if let cell = cell as? ContainersTableViewCell {
+            if cell.insertedView == nil {
+                cell.controllingVC = vc
+                cell.insertedView = self.create()
+            }
+            self.update(cell.insertedView!, vc)
         }
     }
-    func updateCell(tableView: UITableView, cell: UITableViewCell) {
-        switch self.type {
-        case .view(let generator):
-            if let cell = cell as? ContainersTableViewCell {
-                if cell.insertedView == nil {
-                    cell.tableView = tableView
-                    cell.insertedView = generator.create()
-                }
-                generator.update(cell.insertedView!, tableView)
-            }
-        case .staticView(let get):
-            if let cell = cell as? ContainersTableViewCell {
-                cell.tableView = tableView
-                cell.insertedView = get(tableView)
-            }
-        case .xibCell(let generator):
-            generator.update(cell, tableView)
+}
+
+extension CellGenerator.Xib: TableViewCellGenerator {
+    public func registerReuseId(tableView: UITableView) {
+        tableView.register(self.nib, forCellReuseIdentifier: self.reuseId)
+    }
+    
+    public func updateCell(cell: UITableViewCell, vc: UIViewController) {
+        self.update(cell, vc)
+    }
+}
+
+extension CellGenerator.Static: TableViewCellGenerator {
+    public func registerReuseId(tableView: UITableView) {
+        ContainersTableViewCell.registerReuseId(reuseId: self.reuseId, tableView: tableView)
+    }
+    
+    public func updateCell(cell: UITableViewCell, vc: UIViewController) {
+        if let cell = cell as? ContainersTableViewCell {
+            cell.controllingVC = vc
+            cell.insertedView = get(vc)
         }
     }
 }

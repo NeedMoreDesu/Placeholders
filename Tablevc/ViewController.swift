@@ -8,24 +8,24 @@
 
 import UIKit
 
-//class MyTableContents: TableContents {
-//    func sections() -> Int {
-//        return 1
-//    }
-//
-//    func rows(section: Int) -> Int {
-//        return 13
-//    }
-//
-//    func generator(path: IndexPath) -> TableViewCellGenerator {
-//        let viewGenerator = TableViewCellGeneratorType.View(create: { () -> UILabel in
-//            return UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
-//        }, update: { (label: UILabel, tableView: UITableView) -> () in
-//            label.text = "tratata"
-//        })
-//        return TableViewCellGenerator(reuseId: "main", type: .view(viewGenerator))
-//    }
-//}
+class MyTableContents: TableContents {
+    func sections() -> Int {
+        return 1
+    }
+
+    func rows(section: Int) -> Int {
+        return 13
+    }
+
+    func generator(path: IndexPath) -> TableViewCellGenerator {
+        let viewGenerator = CellGenerator.View(create: { () -> UILabel in
+            return UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
+        }, update: { (label: UILabel, vc: UIViewController) -> () in
+            label.text = "tratata"
+        })
+        return viewGenerator
+    }
+}
 
 class ViewController: UIViewController {
     @IBOutlet weak var containerView: ContainerView!
@@ -34,17 +34,16 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let viewGenerator = TableViewCellGeneratorType.View(create: { () -> UILabel in
-            return UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
-        }, update: { (label: UILabel, tableView: UITableView) -> () in
-            label.text = "tratata"
-        })
-        let gen = TableViewCellGenerator(reuseId: "main", type: .view(viewGenerator))
-        
-        let arr: [TableViewCellGenerator] = [gen, gen, gen, gen]
+//        let v1 = CellGenerator.View(create: { () -> UILabel in
+//            return UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
+//        }, update: { (label: UILabel, vc: UIViewController) -> () in
+//            label.text = "tratata"
+//        })
+//
+//        let arr: [TableViewCellGenerator] = [v1, v1, v1, v1]
         
         self.tableVC = VCSTableVC.create(builderFn: { (vc) in
-            vc.tableContents = arr
+            vc.tableContents = MyTableContents()
         })
         self.containerView.insertedView = self.tableVC
     }
