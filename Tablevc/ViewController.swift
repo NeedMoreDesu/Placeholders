@@ -16,18 +16,20 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         self.tableVC = VCSTableVC.create(builderFn: { (vc) in
-            vc.tableContents = TableContents(sections: { () -> Int in
-                return 1
-            }, rows: { (section) -> Int in
-                return 13
-            }, generator: { (indexPath: IndexPath) -> TableViewCellGenerator in
-                let viewGenerator = CellGenerator.View(create: { () -> UILabel in
-                    return UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
-                }, update: { (label: UILabel, vc: UIViewController) -> () in
-                    label.text = "tratata"
-                })
-                return viewGenerator
+            let viewGenerator = CellGenerator.View(create: { () -> UILabel in
+                return UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
+            }, update: { (label: UILabel, vc: UIViewController) -> () in
+                label.text = "tratata"
             })
+
+            vc.tableContents = TableContents.fromArray(array1d: [viewGenerator])
+//                TableContents(sections: { () -> Int in
+//                return 1
+//            }, rows: { (section) -> Int in
+//                return 13
+//            }, generator: { (indexPath: IndexPath) -> TableViewCellGenerator in
+//                return viewGenerator
+//            })
         })
         self.containerView.insertedView = self.tableVC
     }
