@@ -42,7 +42,7 @@ open class VCSTableVC: UITableViewController, TableUpdateDelegate {
     }
     
     //MARK: input
-    open var tableContents: TableContents!
+    open var tableContents: TableContents<TableViewCellGenerator>!
     open var estimatedHeight: Double = 42.0 { didSet { self.updateUI() } }
     
     //MARK: VC creation
@@ -98,7 +98,7 @@ open class VCSTableVC: UITableViewController, TableUpdateDelegate {
     }
     
     override open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let generator = self.tableContents.generator(path: indexPath)
+        let generator = self.tableContents.generator(path: indexPath) as TableViewCellGenerator
         
         if (!self.reuseIds.contains(generator.reuseId)) {
             generator.registerReuseId(tableView: tableView)

@@ -9,6 +9,9 @@
 import Foundation
 import UIKit
 
+/*
+ Adapt all CellGenerators to be able to produce UITableView cells
+*/
 public protocol TableViewCellGenerator {
     var reuseId: String { get }
     func registerReuseId(tableView: UITableView)

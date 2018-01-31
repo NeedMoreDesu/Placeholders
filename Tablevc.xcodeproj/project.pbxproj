@@ -61,6 +61,7 @@
 			children = (
 				675CC007201B61A800D97072 /* AnyView.swift */,
 				673101932021DAE800D84501 /* CellGenerator.swift */,
+				675CC009201F581800D97072 /* TableContents.swift */,
 			);
 			path = Abstracts;
 			sourceTree = "<group>";
@@ -91,6 +92,7 @@
 				A1FD5729201CDCC7006C25C1 /* ViewContainer */,
 				675CBFF3201B60A700D97072 /* AppDelegate.swift */,
 				675CBFF5201B60A700D97072 /* ViewController.swift */,
+				673101912020D0FC00D84501 /* ArrayAsContents.swift */,
 				675CBFF7201B60A700D97072 /* Main.storyboard */,
 				675CBFFA201B60A700D97072 /* Assets.xcassets */,
 				675CBFFC201B60A700D97072 /* LaunchScreen.storyboard */,
@@ -122,8 +124,6 @@
 				A1FD572E201E0100006C25C1 /* VCSTableView.storyboard */,
 				A1FD572F201E0100006C25C1 /* VCSTableVC.swift */,
 				673101962021F63E00D84501 /* TableViewCellGenerator.swift */,
-				675CC009201F581800D97072 /* TableContents.swift */,
-				673101912020D0FC00D84501 /* ArrayAsContents.swift */,
 			);
 			path = TableViewContainer;
 			sourceTree = "<group>";

@@ -9,7 +9,10 @@
 import Foundation
 import UIKit
 
-public enum CellGenerator {
+/*
+ Abstract entity, describing how to create and reuse-update view
+ */
+public struct CellGenerator {
     public struct View {
         public var reuseId: String
         var create: (() -> AnyView)
