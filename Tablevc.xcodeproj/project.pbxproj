@@ -27,7 +27,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		673101912020D0FC00D84501 /* ArrayAsContents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayAsContents.swift; sourceTree = "<group>"; };
 		673101932021DAE800D84501 /* CellGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellGenerator.swift; sourceTree = "<group>"; };
 		673101962021F63E00D84501 /* TableViewCellGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellGenerator.swift; sourceTree = "<group>"; };
 		673101992021FE5E00D84501 /* TableContents+FromArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableContents+FromArray.swift"; sourceTree = "<group>"; };
@@ -98,7 +97,6 @@
 				A1FD5729201CDCC7006C25C1 /* ViewContainer */,
 				675CBFF3201B60A700D97072 /* AppDelegate.swift */,
 				675CBFF5201B60A700D97072 /* ViewController.swift */,
-				673101912020D0FC00D84501 /* ArrayAsContents.swift */,
 				675CBFF7201B60A700D97072 /* Main.storyboard */,
 				675CBFFA201B60A700D97072 /* Assets.xcassets */,
 				675CBFFC201B60A700D97072 /* LaunchScreen.storyboard */,
