@@ -11,7 +11,12 @@ import UIKit
 
 open class VCSTableVC: UITableViewController {
     //MARK: input
-    open var rowsProvider: RowsProvider<TableViewCellGenerator>?
+    open var rowsProvider: RowsProvider<TableViewCellGenerator>? {
+        didSet {
+            oldValue?.updateDelegate = nil
+            self.rowsProvider?.updateDelegate = self
+        }
+    }
     open var sectionsHeaderProvider: SectionsProvider<AnyView>?
     open var sectionsFooterProvider: SectionsProvider<AnyView>?
     open var estimatedRowHeight: Double = 42.0 { didSet { self.updateUI() } }
