@@ -22,14 +22,14 @@ class ViewController: UIViewController {
                 label.text = "tratata"
             })
 
-            vc.tableContents = TableContents.fromArray(array1d: [viewGenerator])
-//                TableContents(sections: { () -> Int in
-//                return 1
-//            }, rows: { (section) -> Int in
-//                return 13
-//            }, generator: { (indexPath: IndexPath) -> TableViewCellGenerator in
-//                return viewGenerator
-//            })
+            vc.tableContents = //TableContents.fromArray(array1d: [viewGenerator])
+                RowsProvider(sections: { () -> Int in
+                return 1
+            }, rows: { (section) -> Int in
+                return 13
+            }, generator: { (indexPath: IndexPath) -> TableViewCellGenerator in
+                return viewGenerator
+            })
         })
         self.containerView.insertedView = self.tableVC
     }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension TableContents {
+extension RowsProvider {
     /*
      This function is not lazy and generally
      should not be used except for debug purposes

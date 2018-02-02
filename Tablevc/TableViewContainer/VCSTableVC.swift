@@ -9,40 +9,9 @@
 import Foundation
 import UIKit
 
-protocol TableUpdateDelegate {
-    func willChangeContent()
-    func didChangeContent()
-
-    func insert(paths: [IndexPath])
-    func delete(paths: [IndexPath])
-    func update(paths: [IndexPath])
-    
-    func updateUI()
-}
-
-open class VCSTableVC: UITableViewController, TableUpdateDelegate {
-    func willChangeContent() {
-        self.tableView.beginUpdates()
-    }
-    
-    func didChangeContent() {
-        self.tableView.endUpdates()
-    }
-    
-    func insert(paths: [IndexPath]) {
-        self.tableView.insertRows(at: paths, with: .automatic)
-    }
-    
-    func delete(paths: [IndexPath]) {
-        self.tableView.deleteRows(at: paths, with: .fade)
-    }
-    
-    func update(paths: [IndexPath]) {
-        self.tableView.reloadRows(at: paths, with: .automatic)
-    }
-    
+open class VCSTableVC: UITableViewController {
     //MARK: input
-    open var tableContents: TableContents<TableViewCellGenerator>!
+    open var tableContents: RowsProvider<TableViewCellGenerator>!
     open var estimatedHeight: Double = 42.0 { didSet { self.updateUI() } }
     
     //MARK: VC creation
@@ -76,11 +45,11 @@ open class VCSTableVC: UITableViewController, TableUpdateDelegate {
         self.updateUI()
     }
     
-    func updateUI() {
+    public func updateUI() {
         self.tableView?.estimatedRowHeight = CGFloat(self.estimatedHeight)
         self.tableView?.reloadData()
     }
-    
+
     //MARK:- actions
 
     //MARK:- tableView delegate
@@ -107,5 +76,27 @@ open class VCSTableVC: UITableViewController, TableUpdateDelegate {
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: generator.reuseId, for: indexPath)
         generator.updateCell(cell: cell, vc: self)
         return cell
+    }
+}
+
+extension VCSTableVC: RowsUpdateDelegate {
+    public func willChangeContent() {
+        self.tableView.beginUpdates()
+    }
+    
+    public func didChangeContent() {
+        self.tableView.endUpdates()
+    }
+    
+    public func insert(paths: [IndexPath]) {
+        self.tableView.insertRows(at: paths, with: .automatic)
+    }
+    
+    public func delete(paths: [IndexPath]) {
+        self.tableView.deleteRows(at: paths, with: .fade)
+    }
+    
+    public func update(paths: [IndexPath]) {
+        self.tableView.reloadRows(at: paths, with: .automatic)
     }
 }

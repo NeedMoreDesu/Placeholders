@@ -13,7 +13,7 @@ import UIKit
  Some data grouped into sections and rows;
  Supports lazy initialization;
  */
-public class TableContents<Type> {
+public class RowsProvider<Type>: RowsUpdateDelegateProxy {
     private var sectionsFn: (() -> Int)
     private var rowsFn: ((_ section: Int) -> Int)
     private var generatorFn: ((_ path: IndexPath) -> Type)
@@ -26,6 +26,7 @@ public class TableContents<Type> {
         self.generatorFn = generator
     }
 
+    public weak var updateDelegate: RowsUpdateDelegate?
     public func sections() -> Int {
         return self.sectionsFn()
     }

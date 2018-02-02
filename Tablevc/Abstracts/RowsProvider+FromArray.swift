@@ -8,9 +8,9 @@
 
 import Foundation
 
-extension TableContents {
-    class func fromArray(array2d: [[Type]]) -> TableContents {
-        return TableContents(sections: { () -> Int in
+extension RowsProvider {
+    class func fromArray(array2d: [[Type]]) -> RowsProvider {
+        return RowsProvider(sections: { () -> Int in
             return array2d.count
         }, rows: { (section: Int) -> Int in
             return array2d[section].count
@@ -18,8 +18,8 @@ extension TableContents {
             return array2d[indexPath.section][indexPath.row]
         }
     }
-    class func fromArray(array1d: [Type]) -> TableContents {
-        return TableContents(sections: { () -> Int in
+    class func fromArray(array1d: [Type]) -> RowsProvider {
+        return RowsProvider(sections: { () -> Int in
             return 1
         }, rows: { (section: Int) -> Int in
             return array1d.count

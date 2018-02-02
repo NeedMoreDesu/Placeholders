@@ -7,17 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		672B9FEE2024AAB7006268B7 /* RowsUpdateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672B9FED2024AAB7006268B7 /* RowsUpdateDelegate.swift */; };
 		673101942021DAE800D84501 /* CellGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673101932021DAE800D84501 /* CellGenerator.swift */; };
 		673101972021F63E00D84501 /* TableViewCellGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673101962021F63E00D84501 /* TableViewCellGenerator.swift */; };
-		6731019A2021FE5E00D84501 /* TableContents+FromArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673101992021FE5E00D84501 /* TableContents+FromArray.swift */; };
-		6731019C2021FFA300D84501 /* TableContents+ToArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6731019B2021FFA300D84501 /* TableContents+ToArray.swift */; };
+		6731019A2021FE5E00D84501 /* RowsProvider+FromArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673101992021FE5E00D84501 /* RowsProvider+FromArray.swift */; };
+		6731019C2021FFA300D84501 /* RowsProvider+ToArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6731019B2021FFA300D84501 /* RowsProvider+ToArray.swift */; };
 		675CBFF4201B60A700D97072 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675CBFF3201B60A700D97072 /* AppDelegate.swift */; };
 		675CBFF6201B60A700D97072 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675CBFF5201B60A700D97072 /* ViewController.swift */; };
 		675CBFF9201B60A700D97072 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 675CBFF7201B60A700D97072 /* Main.storyboard */; };
 		675CBFFB201B60A700D97072 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 675CBFFA201B60A700D97072 /* Assets.xcassets */; };
 		675CBFFE201B60A700D97072 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 675CBFFC201B60A700D97072 /* LaunchScreen.storyboard */; };
 		675CC008201B61A800D97072 /* AnyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675CC007201B61A800D97072 /* AnyView.swift */; };
-		675CC00A201F581800D97072 /* TableContents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675CC009201F581800D97072 /* TableContents.swift */; };
+		675CC00A201F581800D97072 /* RowsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675CC009201F581800D97072 /* RowsProvider.swift */; };
 		A1FD5728201CDB14006C25C1 /* ContainersUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FD5727201CDB14006C25C1 /* ContainersUtils.swift */; };
 		A1FD572C201CDF1D006C25C1 /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FD572B201CDF1D006C25C1 /* ContainerView.swift */; };
 		A1FD5731201E0100006C25C1 /* ContainersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FD572D201E0100006C25C1 /* ContainersTableViewCell.swift */; };
@@ -27,10 +28,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		672B9FED2024AAB7006268B7 /* RowsUpdateDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowsUpdateDelegate.swift; sourceTree = "<group>"; };
 		673101932021DAE800D84501 /* CellGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellGenerator.swift; sourceTree = "<group>"; };
 		673101962021F63E00D84501 /* TableViewCellGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellGenerator.swift; sourceTree = "<group>"; };
-		673101992021FE5E00D84501 /* TableContents+FromArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableContents+FromArray.swift"; sourceTree = "<group>"; };
-		6731019B2021FFA300D84501 /* TableContents+ToArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableContents+ToArray.swift"; sourceTree = "<group>"; };
+		673101992021FE5E00D84501 /* RowsProvider+FromArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RowsProvider+FromArray.swift"; sourceTree = "<group>"; };
+		6731019B2021FFA300D84501 /* RowsProvider+ToArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RowsProvider+ToArray.swift"; sourceTree = "<group>"; };
 		675CBFF0201B60A700D97072 /* Tablevc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tablevc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		675CBFF3201B60A700D97072 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		675CBFF5201B60A700D97072 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -39,7 +41,7 @@
 		675CBFFD201B60A700D97072 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		675CBFFF201B60A700D97072 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		675CC007201B61A800D97072 /* AnyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyView.swift; sourceTree = "<group>"; };
-		675CC009201F581800D97072 /* TableContents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableContents.swift; sourceTree = "<group>"; };
+		675CC009201F581800D97072 /* RowsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowsProvider.swift; sourceTree = "<group>"; };
 		A1FD5727201CDB14006C25C1 /* ContainersUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainersUtils.swift; sourceTree = "<group>"; };
 		A1FD572B201CDF1D006C25C1 /* ContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
 		A1FD572D201E0100006C25C1 /* ContainersTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainersTableViewCell.swift; sourceTree = "<group>"; };
@@ -64,9 +66,10 @@
 			children = (
 				675CC007201B61A800D97072 /* AnyView.swift */,
 				673101932021DAE800D84501 /* CellGenerator.swift */,
-				675CC009201F581800D97072 /* TableContents.swift */,
-				673101992021FE5E00D84501 /* TableContents+FromArray.swift */,
-				6731019B2021FFA300D84501 /* TableContents+ToArray.swift */,
+				672B9FED2024AAB7006268B7 /* RowsUpdateDelegate.swift */,
+				675CC009201F581800D97072 /* RowsProvider.swift */,
+				673101992021FE5E00D84501 /* RowsProvider+FromArray.swift */,
+				6731019B2021FFA300D84501 /* RowsProvider+ToArray.swift */,
 			);
 			path = Abstracts;
 			sourceTree = "<group>";
@@ -207,16 +210,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				675CC00A201F581800D97072 /* TableContents.swift in Sources */,
+				675CC00A201F581800D97072 /* RowsProvider.swift in Sources */,
 				A1FD5733201E0100006C25C1 /* VCSTableVC.swift in Sources */,
 				675CBFF6201B60A700D97072 /* ViewController.swift in Sources */,
-				6731019A2021FE5E00D84501 /* TableContents+FromArray.swift in Sources */,
+				6731019A2021FE5E00D84501 /* RowsProvider+FromArray.swift in Sources */,
+				672B9FEE2024AAB7006268B7 /* RowsUpdateDelegate.swift in Sources */,
 				675CBFF4201B60A700D97072 /* AppDelegate.swift in Sources */,
 				A1FD5731201E0100006C25C1 /* ContainersTableViewCell.swift in Sources */,
 				673101972021F63E00D84501 /* TableViewCellGenerator.swift in Sources */,
 				A1FD5728201CDB14006C25C1 /* ContainersUtils.swift in Sources */,
 				675CC008201B61A800D97072 /* AnyView.swift in Sources */,
-				6731019C2021FFA300D84501 /* TableContents+ToArray.swift in Sources */,
+				6731019C2021FFA300D84501 /* RowsProvider+ToArray.swift in Sources */,
 				A1FD572C201CDF1D006C25C1 /* ContainerView.swift in Sources */,
 				673101942021DAE800D84501 /* CellGenerator.swift in Sources */,
 			);
