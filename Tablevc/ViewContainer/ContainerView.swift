@@ -10,8 +10,9 @@ import Foundation
 import UIKit
 
 open class ContainerView: UIView {
-    var controllingVC: UIViewController? {
-        return ContainersUtils.controllingViewController(view: self)
+    open weak var controllingVC: UIViewController? // can be set from outside
+    private var containerVC: UIViewController? {
+        return self.controllingVC ?? ContainersUtils.controllingViewController(view: self)
     }
     
     open var insertedView: AnyView? {
@@ -23,7 +24,7 @@ open class ContainerView: UIView {
                 return
             }
             oldValue?.remove()
-            newValue.add(to: self.controllingVC, into: self)
+            newValue.add(to: self.containerVC, into: self)
         }
     }
     open func vc<Type>(type: Type.Type? = nil) -> Type {

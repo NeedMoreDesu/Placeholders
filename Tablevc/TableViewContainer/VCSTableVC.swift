@@ -11,9 +11,13 @@ import UIKit
 
 open class VCSTableVC: UITableViewController {
     //MARK: input
-    open var tableContents: RowsProvider<TableViewCellGenerator>!
-    open var estimatedHeight: Double = 42.0 { didSet { self.updateUI() } }
-    
+    open var rowsProvider: RowsProvider<TableViewCellGenerator>?
+    open var sectionsHeaderProvider: SectionsProvider<AnyView>?
+    open var sectionsFooterProvider: SectionsProvider<AnyView>?
+    open var estimatedRowHeight: Double = 42.0 { didSet { self.updateUI() } }
+    open var estimatedSectionHeaderHeight: Double = 42.0 { didSet { self.updateUI() } }
+    open var estimatedSectionFooterHeight: Double = 42.0 { didSet { self.updateUI() } }
+
     //MARK: VC creation
     open class func create(builderFn:((VCSTableVC) -> Void)? = nil) -> VCSTableVC {
         let vc: VCSTableVC = ContainersUtils.createVC(storyboardId: "VCSTableView", vcId: "VCSTableVC")
@@ -46,36 +50,71 @@ open class VCSTableVC: UITableViewController {
     }
     
     public func updateUI() {
-        self.tableView?.estimatedRowHeight = CGFloat(self.estimatedHeight)
+        self.tableView?.estimatedRowHeight = CGFloat(self.estimatedRowHeight)
+        self.tableView?.estimatedSectionHeaderHeight = CGFloat(self.estimatedSectionHeaderHeight)
+        self.tableView?.estimatedSectionFooterHeight = CGFloat(self.estimatedSectionFooterHeight)
         self.tableView?.reloadData()
     }
 
     //MARK:- actions
 
     //MARK:- tableView delegate
-    override open func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(self.estimatedHeight)
-    }
-    
     override open func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }
     
+    open override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return self.sectionsHeaderProvider?.section(section: section) != nil ?
+            UITableViewAutomaticDimension :
+            CGFloat(0.0)
+    }
+
+    open override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return self.sectionsFooterProvider?.section(section: section) != nil ?
+            UITableViewAutomaticDimension :
+            CGFloat(0.0)
+    }
+
     //MARK:- tableView data source
+    open override func numberOfSections(in tableView: UITableView) -> Int {
+        return self.rowsProvider?.sections() ?? 0
+    }
+    
     override open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.tableContents.rows(section: section)
+        return self.rowsProvider?.rows(section: section) ?? 0
+    }
+    
+    open override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if let section = self.sectionsHeaderProvider?.section(section: section) {
+            let container = ContainerView()
+            container.controllingVC = self
+            container.insertedView = section
+            return container
+        }
+        return UIView(frame: CGRect.zero)
+    }
+    
+    open override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        if let section = self.sectionsFooterProvider?.section(section: section) {
+            let container = ContainerView()
+            container.controllingVC = self
+            container.insertedView = section
+            return container
+        }
+        return UIView(frame: CGRect.zero)
     }
     
     override open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let generator = self.tableContents.generator(path: indexPath) as TableViewCellGenerator
-        
-        if (!self.reuseIds.contains(generator.reuseId)) {
-            generator.registerReuseId(tableView: tableView)
-            self.reuseIds.insert(generator.reuseId)
+        if let generator = self.rowsProvider?.generator(path: indexPath) {
+            if (!self.reuseIds.contains(generator.reuseId)) {
+                generator.registerReuseId(tableView: tableView)
+                self.reuseIds.insert(generator.reuseId)
+            }
+            let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: generator.reuseId, for: indexPath)
+            generator.updateCell(cell: cell, vc: self)
+            return cell
         }
-        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: generator.reuseId, for: indexPath)
-        generator.updateCell(cell: cell, vc: self)
-        return cell
+        return UITableViewCell()
     }
 }
 

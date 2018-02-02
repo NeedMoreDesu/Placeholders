@@ -23,7 +23,7 @@ extension RowsProvider {
             return 1
         }, rows: { (section: Int) -> Int in
             return array1d.count
-        }, generator: { (indexPath: IndexPath) -> Type in
+        }, item: { (indexPath: IndexPath) -> Type in
             return array1d[indexPath.row]
         })
     }

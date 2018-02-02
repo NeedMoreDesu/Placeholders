@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		672B9FEE2024AAB7006268B7 /* RowsUpdateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672B9FED2024AAB7006268B7 /* RowsUpdateDelegate.swift */; };
+		672B9FF02024B58D006268B7 /* SectionsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672B9FEF2024B58D006268B7 /* SectionsProvider.swift */; };
 		673101942021DAE800D84501 /* CellGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673101932021DAE800D84501 /* CellGenerator.swift */; };
 		673101972021F63E00D84501 /* TableViewCellGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673101962021F63E00D84501 /* TableViewCellGenerator.swift */; };
 		6731019A2021FE5E00D84501 /* RowsProvider+FromArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673101992021FE5E00D84501 /* RowsProvider+FromArray.swift */; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		672B9FED2024AAB7006268B7 /* RowsUpdateDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowsUpdateDelegate.swift; sourceTree = "<group>"; };
+		672B9FEF2024B58D006268B7 /* SectionsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionsProvider.swift; sourceTree = "<group>"; };
 		673101932021DAE800D84501 /* CellGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellGenerator.swift; sourceTree = "<group>"; };
 		673101962021F63E00D84501 /* TableViewCellGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellGenerator.swift; sourceTree = "<group>"; };
 		673101992021FE5E00D84501 /* RowsProvider+FromArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RowsProvider+FromArray.swift"; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 				675CC009201F581800D97072 /* RowsProvider.swift */,
 				673101992021FE5E00D84501 /* RowsProvider+FromArray.swift */,
 				6731019B2021FFA300D84501 /* RowsProvider+ToArray.swift */,
+				672B9FEF2024B58D006268B7 /* SectionsProvider.swift */,
 			);
 			path = Abstracts;
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 				6731019A2021FE5E00D84501 /* RowsProvider+FromArray.swift in Sources */,
 				672B9FEE2024AAB7006268B7 /* RowsUpdateDelegate.swift in Sources */,
 				675CBFF4201B60A700D97072 /* AppDelegate.swift in Sources */,
+				672B9FF02024B58D006268B7 /* SectionsProvider.swift in Sources */,
 				A1FD5731201E0100006C25C1 /* ContainersTableViewCell.swift in Sources */,
 				673101972021F63E00D84501 /* TableViewCellGenerator.swift in Sources */,
 				A1FD5728201CDB14006C25C1 /* ContainersUtils.swift in Sources */,

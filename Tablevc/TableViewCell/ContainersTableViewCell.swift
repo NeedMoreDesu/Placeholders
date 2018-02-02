@@ -19,7 +19,7 @@ class ContainersTableViewCell: UITableViewCell {
     }
     
     //MARK: public
-    weak var controllingVC: UIViewController? // should be set from outside
+    open weak var controllingVC: UIViewController? // must be set from outside
     open var insertedView: AnyView? {
         didSet {
             guard let newValue = self.insertedView else {

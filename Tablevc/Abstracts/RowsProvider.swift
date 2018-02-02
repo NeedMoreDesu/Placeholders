@@ -16,14 +16,14 @@ import UIKit
 public class RowsProvider<Type>: RowsUpdateDelegateProxy {
     private var sectionsFn: (() -> Int)
     private var rowsFn: ((_ section: Int) -> Int)
-    private var generatorFn: ((_ path: IndexPath) -> Type)
-    
+    private var itemFn: ((_ path: IndexPath) -> Type)
+
     init(sections: @escaping (() -> Int),
          rows: @escaping ((_ section: Int) -> Int),
-         generator: @escaping ((_ path: IndexPath) -> Type)) {
+         item: @escaping ((_ path: IndexPath) -> Type)) {
         self.sectionsFn = sections
         self.rowsFn = rows
-        self.generatorFn = generator
+        self.itemFn = item
     }
 
     public weak var updateDelegate: RowsUpdateDelegate?
@@ -34,6 +34,6 @@ public class RowsProvider<Type>: RowsUpdateDelegateProxy {
         return self.rowsFn(section)
     }
     public func generator(path: IndexPath) -> Type {
-        return self.generatorFn(path)
+        return self.itemFn(path)
     }
 }
