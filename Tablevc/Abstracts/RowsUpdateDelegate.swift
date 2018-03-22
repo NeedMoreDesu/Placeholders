@@ -24,34 +24,34 @@ public protocol RowsUpdateDelegate: class {
 
 /*
  Makes class to conform RowsUpdateDelegate,
- but in fact just translate calls to own delegate
+ but in fact just translate calls to own delegates
  */
 public protocol RowsUpdateDelegateProxy: RowsUpdateDelegate {
-    weak var updateDelegate: RowsUpdateDelegate? { get }
+    var updateDelegates: WeakArray<RowsUpdateDelegate> { get }
 }
 
 extension RowsUpdateDelegateProxy {
     public func willChangeContent() {
-        self.updateDelegate?.willChangeContent()
+        self.updateDelegates.items().forEach { $0.willChangeContent() }
     }
     
     public func didChangeContent() {
-        self.updateDelegate?.didChangeContent()
+        self.updateDelegates.items().forEach { $0.didChangeContent() }
     }
     
     public func insert(paths: [IndexPath]) {
-        self.updateDelegate?.insert(paths: paths)
+        self.updateDelegates.items().forEach { $0.insert(paths: paths) }
     }
     
     public func delete(paths: [IndexPath]) {
-        self.updateDelegate?.delete(paths: paths)
+        self.updateDelegates.items().forEach { $0.delete(paths: paths) }
     }
     
     public func update(paths: [IndexPath]) {
-        self.updateDelegate?.update(paths: paths)
+        self.updateDelegates.items().forEach { $0.update(paths: paths) }
     }
     
     public func updateUI() {
-        self.updateDelegate?.updateUI()
+        self.updateDelegates.items().forEach { $0.updateUI() }
     }
 }

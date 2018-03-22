@@ -11,10 +11,10 @@ import UIKit
 
 open class VCSTableVC: UITableViewController {
     //MARK: input
-    open var rowsProvider: RowsProvider<TableViewCellGenerator>? {
+    open var rowsProvider: RowsProvider<TableViewCellGenerator>? { // lazy provider of cell generators
         didSet {
-            oldValue?.updateDelegate = nil
-            self.rowsProvider?.updateDelegate = self
+            self.oldUpdateProvider?.remove() // removing old onee from subscription array
+            self.oldUpdateProvider = self.rowsProvider?.updateDelegates.add(item: self) // subscribe to updates from new provider
         }
     }
     open var sectionsHeaderProvider: SectionsProvider<AnyView>?
@@ -22,6 +22,9 @@ open class VCSTableVC: UITableViewController {
     open var estimatedRowHeight: Double = 42.0 { didSet { self.updateUI() } }
     open var estimatedSectionHeaderHeight: Double = 42.0 { didSet { self.updateUI() } }
     open var estimatedSectionFooterHeight: Double = 42.0 { didSet { self.updateUI() } }
+    
+    //MARK: private vars
+    private var oldUpdateProvider: WeakItem? = nil
 
     //MARK: VC creation
     open class func create(builderFn:((VCSTableVC) -> Void)? = nil) -> VCSTableVC {

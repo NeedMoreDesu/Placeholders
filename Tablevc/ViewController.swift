@@ -16,17 +16,24 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         self.tableVC = VCSTableVC.create(builderFn: { (vc) in
-            vc.rowsProvider = RowsProvider(sections: { () -> Int in
+            let dataRows = RowsProvider(sections: { () -> Int in
                 return 5
             }, rows: { (section) -> Int in
                 return 40
-            }, item: { (indexPath: IndexPath) -> TableViewCellGenerator in
+            }, item: { (indexPath: IndexPath) -> String in
+                return "row: \(indexPath.row); section: \(indexPath.section);"
+            })
+            
+            let generatorRows = dataRows.map(transform: { (title: String) -> TableViewCellGenerator in
                 return CellGenerator.View(create: { () -> UILabel in
                     return UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
                 }, update: { (label: UILabel, vc: UIViewController) -> () in
-                    label.text = "row: \(indexPath.row); section: \(indexPath.section);"
+                    label.text = title
                 })
             })
+            
+            vc.rowsProvider = generatorRows
+                
             vc.sectionsHeaderProvider = SectionsProvider(section: { (section: Int) -> UILabel in
                 let label = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
                 label.text = "section \(section)"

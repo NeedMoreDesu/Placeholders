@@ -14,19 +14,34 @@ import UIKit
  Supports lazy initialization;
  */
 public class RowsProvider<Type>: RowsUpdateDelegateProxy {
+    //MARK:- internals
     private var sectionsFn: (() -> Int)
     private var rowsFn: ((_ section: Int) -> Int)
     private var itemFn: ((_ path: IndexPath) -> Type)
 
+    //MARK:- constructor
     init(sections: @escaping (() -> Int),
          rows: @escaping ((_ section: Int) -> Int),
          item: @escaping ((_ path: IndexPath) -> Type)) {
         self.sectionsFn = sections
         self.rowsFn = rows
         self.itemFn = item
+        self.updateDelegates = WeakArray<RowsUpdateDelegate>()
+    }
+    
+    func map<NewType>(transform: @escaping (Type) -> NewType) -> RowsProvider<NewType> {
+        let retval = RowsProvider<NewType>(sections: self.sectionsFn,
+                                           rows: self.rowsFn)
+        { (path) -> NewType in
+            return transform(self.generator(path: path))
+        }
+        return retval
     }
 
-    public weak var updateDelegate: RowsUpdateDelegate?
+    //MARK:- publics
+    
+    // use .updateDelegates.add(item: ...) to subscribe for updates
+    public var updateDelegates: WeakArray<RowsUpdateDelegate>
     public func sections() -> Int {
         return self.sectionsFn()
     }
