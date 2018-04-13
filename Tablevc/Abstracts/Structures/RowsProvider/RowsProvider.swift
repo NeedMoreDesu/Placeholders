@@ -35,6 +35,7 @@ public class RowsProvider<Type>: RowsUpdateDelegateProxy {
         { (path) -> NewType in
             return transform(self.generator(path: path))
         }
+        let _ = self.updateDelegates.add(item: retval)
         return retval
     }
 

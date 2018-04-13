@@ -68,16 +68,40 @@
 		673101952021DCA100D84501 /* Abstracts */ = {
 			isa = PBXGroup;
 			children = (
+				6749F1852080D27600F5B861 /* Structures */,
+				672B9FEF2024B58D006268B7 /* SectionsProvider.swift */,
+				6749F1842080D26100F5B861 /* Type */,
+			);
+			path = Abstracts;
+			sourceTree = "<group>";
+		};
+		6749F1842080D26100F5B861 /* Type */ = {
+			isa = PBXGroup;
+			children = (
 				675CC007201B61A800D97072 /* AnyView.swift */,
 				673101932021DAE800D84501 /* CellGenerator.swift */,
+			);
+			path = Type;
+			sourceTree = "<group>";
+		};
+		6749F1852080D27600F5B861 /* Structures */ = {
+			isa = PBXGroup;
+			children = (
+				6754F8902063F057000F19C4 /* WeakArray.swift */,
+				6749F1862080F14600F5B861 /* RowsProvider */,
+			);
+			path = Structures;
+			sourceTree = "<group>";
+		};
+		6749F1862080F14600F5B861 /* RowsProvider */ = {
+			isa = PBXGroup;
+			children = (
 				675CC009201F581800D97072 /* RowsProvider.swift */,
 				673101992021FE5E00D84501 /* RowsProvider+FromArray.swift */,
 				6731019B2021FFA300D84501 /* RowsProvider+ToArray.swift */,
-				672B9FEF2024B58D006268B7 /* SectionsProvider.swift */,
 				672B9FED2024AAB7006268B7 /* RowsUpdateDelegate.swift */,
-				6754F8902063F057000F19C4 /* WeakArray.swift */,
 			);
-			path = Abstracts;
+			path = RowsProvider;
 			sourceTree = "<group>";
 		};
 		675CBFE7201B60A700D97072 = {
