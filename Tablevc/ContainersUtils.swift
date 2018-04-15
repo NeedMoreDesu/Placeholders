@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class ContainersUtils {
-    class func controllingViewController(view: UIView?) -> UIViewController? {
+    public class func controllingViewController(view: UIView?) -> UIViewController? {
         var responder: UIResponder? = view
         while !(responder is UIViewController) {
             responder = responder?.next
@@ -21,7 +21,7 @@ class ContainersUtils {
         return responder as? UIViewController
     }
     
-    class func addContainerConstraints(container: UIView, view: UIView) {
+    public class func addContainerConstraints(container: UIView, view: UIView) {
         view.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint(item: view,
                            attribute: NSLayoutAttribute.leading,
@@ -53,7 +53,7 @@ class ContainersUtils {
                            constant: 0.0).isActive = true
     }
     
-    class func createVC<Type>(storyboardId: String, vcId: String) -> Type {
+    public class func createVC<Type>(storyboardId: String, vcId: String) -> Type {
         let type = Type.self as! AnyClass
         let bundle = Bundle(for: type)
         let storyboard = UIStoryboard.init(name: storyboardId, bundle: bundle)
@@ -62,7 +62,7 @@ class ContainersUtils {
         return vc as! Type
     }
     
-    class func afterDelay(seconds: Double, fn: @escaping (() -> ())) {
+    public class func afterDelay(seconds: Double, fn: @escaping (() -> ())) {
         DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
             fn()
         }

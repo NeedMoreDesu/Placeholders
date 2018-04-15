@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-open class ContainerView: UIView {
+open class PlaceholderView: PassthroughView {
     open weak var controllingVC: UIViewController? // can be set from outside
     private var containerVC: UIViewController? {
         return self.controllingVC ?? ContainersUtils.controllingViewController(view: self)
@@ -33,15 +33,5 @@ open class ContainerView: UIView {
     
     deinit {
         self.insertedView?.remove()
-    }
-    
-    //MARK: inner stuff
-    override open func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
-        for subview in subviews {
-            if !subview.isHidden && subview.alpha > 0 && subview.isUserInteractionEnabled && subview.point(inside: convert(point, to: subview), with: event) {
-                return true
-            }
-        }
-        return false
     }
 }

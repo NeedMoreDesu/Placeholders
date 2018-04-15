@@ -94,7 +94,7 @@ open class VCSTableVC: UITableViewController {
     
     open override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if let section = self.sectionsHeaderProvider?.section(section: section) {
-            let container = ContainerView()
+            let container = PlaceholderView()
             container.controllingVC = self
             container.insertedView = section
             return container
@@ -104,7 +104,7 @@ open class VCSTableVC: UITableViewController {
     
     open override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         if let section = self.sectionsFooterProvider?.section(section: section) {
-            let container = ContainerView()
+            let container = PlaceholderView()
             container.controllingVC = self
             container.insertedView = section
             return container

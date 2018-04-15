@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-    @IBOutlet weak var containerView: ContainerView!
+    @IBOutlet weak var containerView: PlaceholderView!
     var tableVC: VCSTableVC!
     
     override func viewDidLoad() {
@@ -43,6 +43,15 @@ class ViewController: UIViewController {
         })
         
         self.containerView.insertedView = self.tableVC
+        
+        ContainersUtils.afterDelay(seconds: 1.0) {
+            let label = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
+            label.text = "I'll remove myself in 3 second"
+            let popup = label.showPopup()
+            ContainersUtils.afterDelay(seconds: 3.0, fn: {
+                popup.dismissPopup()
+            })
+        }
     }
 }
 

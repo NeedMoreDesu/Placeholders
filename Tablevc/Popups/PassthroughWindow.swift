@@ -8,8 +8,8 @@
 
 import UIKit
 
-class PassthroughWindow: UIWindow {
-    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+open class PassthroughWindow: UIWindow {
+    override open func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
         let hitTestResult = super.hitTest(point, with: event)
         if hitTestResult?.isKind(of: PassthroughWindow.self) == true {
             return nil
