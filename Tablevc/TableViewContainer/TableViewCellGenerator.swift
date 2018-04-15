@@ -20,11 +20,11 @@ public protocol TableViewCellGenerator {
 
 extension CellGenerator.View: TableViewCellGenerator {
     public func registerReuseId(tableView: UITableView) {
-        ContainersTableViewCell.registerReuseId(reuseId: self.reuseId, tableView: tableView)
+        PlaceholderTableViewCell.registerReuseId(reuseId: self.reuseId, tableView: tableView)
     }
     
     public func updateCell(cell: UITableViewCell, vc: UIViewController) {
-        if let cell = cell as? ContainersTableViewCell {
+        if let cell = cell as? PlaceholderTableViewCell {
             if cell.insertedView == nil {
                 cell.controllingVC = vc
                 cell.insertedView = self.create()
@@ -46,11 +46,11 @@ extension CellGenerator.Xib: TableViewCellGenerator {
 
 extension CellGenerator.Static: TableViewCellGenerator {
     public func registerReuseId(tableView: UITableView) {
-        ContainersTableViewCell.registerReuseId(reuseId: self.reuseId, tableView: tableView)
+        PlaceholderTableViewCell.registerReuseId(reuseId: self.reuseId, tableView: tableView)
     }
     
     public func updateCell(cell: UITableViewCell, vc: UIViewController) {
-        if let cell = cell as? ContainersTableViewCell {
+        if let cell = cell as? PlaceholderTableViewCell {
             cell.controllingVC = vc
             cell.insertedView = get(vc)
         }

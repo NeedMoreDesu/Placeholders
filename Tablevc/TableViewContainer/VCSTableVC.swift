@@ -28,7 +28,7 @@ open class VCSTableVC: UITableViewController {
 
     //MARK: VC creation
     open class func create(builderFn:((VCSTableVC) -> Void)? = nil) -> VCSTableVC {
-        let vc: VCSTableVC = ContainersUtils.createVC(storyboardId: "VCSTableView", vcId: "VCSTableVC")
+        let vc: VCSTableVC = PlaceholderUtils.createVC(storyboardId: "VCSTableView", vcId: "VCSTableVC")
         builderFn?(vc)
         return vc
     }

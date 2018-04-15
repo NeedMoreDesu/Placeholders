@@ -1,6 +1,6 @@
 //
 //  AnyView.swift
-//  Containers
+//  Placeholder
 //
 //  Created by Oleksii Horishnii on 1/26/18.
 //  Copyright © 2018 Oleksii Horishnii. All rights reserved.
@@ -19,7 +19,7 @@ public protocol AnyView {
 extension UIView: AnyView {
     public func add(to: UIViewController?, into: UIView) {
         into.addSubview(self)
-        ContainersUtils.addContainerConstraints(container: into, view: self)
+        PlaceholderUtils.addContainerConstraints(container: into, view: self)
     }
     
     public func remove() {
@@ -36,7 +36,7 @@ extension UIViewController: AnyView {
         to?.addChildViewController(self)
         self.view.bounds = into.bounds
         into.addSubview(self.view)
-        ContainersUtils.addContainerConstraints(container: into, view: self.view)
+        PlaceholderUtils.addContainerConstraints(container: into, view: self.view)
         self.didMove(toParentViewController: to)
     }
     

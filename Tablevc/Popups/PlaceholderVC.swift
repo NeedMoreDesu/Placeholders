@@ -11,7 +11,7 @@ import UIKit
 open class PlaceholderVC: UIViewController {
     //MARK: VC creation
     public class func create() -> PlaceholderVC {
-        return ContainersUtils.createVC(storyboardId: "PlaceholderVC", vcId: "PlaceholderVC")
+        return PlaceholderUtils.createVC(storyboardId: "PlaceholderVC", vcId: "PlaceholderVC")
     }
     
     public var placeholder: PlaceholderView {

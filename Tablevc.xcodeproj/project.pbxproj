@@ -26,12 +26,12 @@
 		675CC00A201F581800D97072 /* RowsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675CC009201F581800D97072 /* RowsProvider.swift */; };
 		A141939620836A370087201D /* PassthroughView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A141939520836A370087201D /* PassthroughView.swift */; };
 		A14193992083706D0087201D /* AnyView+ShowPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14193982083706D0087201D /* AnyView+ShowPopup.swift */; };
-		A1FD5728201CDB14006C25C1 /* ContainersUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FD5727201CDB14006C25C1 /* ContainersUtils.swift */; };
+		A1FD5728201CDB14006C25C1 /* PlaceholderUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FD5727201CDB14006C25C1 /* PlaceholderUtils.swift */; };
 		A1FD572C201CDF1D006C25C1 /* PlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FD572B201CDF1D006C25C1 /* PlaceholderView.swift */; };
-		A1FD5731201E0100006C25C1 /* ContainersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FD572D201E0100006C25C1 /* ContainersTableViewCell.swift */; };
+		A1FD5731201E0100006C25C1 /* PlaceholderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FD572D201E0100006C25C1 /* PlaceholderTableViewCell.swift */; };
 		A1FD5732201E0100006C25C1 /* VCSTableView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1FD572E201E0100006C25C1 /* VCSTableView.storyboard */; };
 		A1FD5733201E0100006C25C1 /* VCSTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FD572F201E0100006C25C1 /* VCSTableVC.swift */; };
-		A1FD5734201E0100006C25C1 /* ContainersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1FD5730201E0100006C25C1 /* ContainersTableViewCell.xib */; };
+		A1FD5734201E0100006C25C1 /* PlaceholderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1FD5730201E0100006C25C1 /* PlaceholderTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,12 +56,12 @@
 		675CC009201F581800D97072 /* RowsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowsProvider.swift; sourceTree = "<group>"; };
 		A141939520836A370087201D /* PassthroughView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassthroughView.swift; sourceTree = "<group>"; };
 		A14193982083706D0087201D /* AnyView+ShowPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnyView+ShowPopup.swift"; sourceTree = "<group>"; };
-		A1FD5727201CDB14006C25C1 /* ContainersUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainersUtils.swift; sourceTree = "<group>"; };
+		A1FD5727201CDB14006C25C1 /* PlaceholderUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderUtils.swift; sourceTree = "<group>"; };
 		A1FD572B201CDF1D006C25C1 /* PlaceholderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceholderView.swift; sourceTree = "<group>"; };
-		A1FD572D201E0100006C25C1 /* ContainersTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainersTableViewCell.swift; sourceTree = "<group>"; };
+		A1FD572D201E0100006C25C1 /* PlaceholderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceholderTableViewCell.swift; sourceTree = "<group>"; };
 		A1FD572E201E0100006C25C1 /* VCSTableView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = VCSTableView.storyboard; sourceTree = "<group>"; };
 		A1FD572F201E0100006C25C1 /* VCSTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCSTableVC.swift; sourceTree = "<group>"; };
-		A1FD5730201E0100006C25C1 /* ContainersTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContainersTableViewCell.xib; sourceTree = "<group>"; };
+		A1FD5730201E0100006C25C1 /* PlaceholderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceholderTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,7 +144,7 @@
 		675CBFF2201B60A700D97072 /* Tablevc */ = {
 			isa = PBXGroup;
 			children = (
-				A1FD5727201CDB14006C25C1 /* ContainersUtils.swift */,
+				A1FD5727201CDB14006C25C1 /* PlaceholderUtils.swift */,
 				673101952021DCA100D84501 /* Abstracts */,
 				A1FD572A201CDCE3006C25C1 /* TableViewContainer */,
 				675CC00B201F6AE500D97072 /* TableViewCell */,
@@ -163,8 +163,8 @@
 		675CC00B201F6AE500D97072 /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				A1FD5730201E0100006C25C1 /* ContainersTableViewCell.xib */,
-				A1FD572D201E0100006C25C1 /* ContainersTableViewCell.swift */,
+				A1FD5730201E0100006C25C1 /* PlaceholderTableViewCell.xib */,
+				A1FD572D201E0100006C25C1 /* PlaceholderTableViewCell.swift */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -252,7 +252,7 @@
 				A1FD5732201E0100006C25C1 /* VCSTableView.storyboard in Resources */,
 				675CBFFB201B60A700D97072 /* Assets.xcassets in Resources */,
 				675CBFF9201B60A700D97072 /* Main.storyboard in Resources */,
-				A1FD5734201E0100006C25C1 /* ContainersTableViewCell.xib in Resources */,
+				A1FD5734201E0100006C25C1 /* PlaceholderTableViewCell.xib in Resources */,
 				6749F1892080F42000F5B861 /* PlaceholderVC.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -275,9 +275,9 @@
 				6749F18E2080F52700F5B861 /* PassthroughWindow.swift in Sources */,
 				675CBFF4201B60A700D97072 /* AppDelegate.swift in Sources */,
 				672B9FF02024B58D006268B7 /* SectionsProvider.swift in Sources */,
-				A1FD5731201E0100006C25C1 /* ContainersTableViewCell.swift in Sources */,
+				A1FD5731201E0100006C25C1 /* PlaceholderTableViewCell.swift in Sources */,
 				673101972021F63E00D84501 /* TableViewCellGenerator.swift in Sources */,
-				A1FD5728201CDB14006C25C1 /* ContainersUtils.swift in Sources */,
+				A1FD5728201CDB14006C25C1 /* PlaceholderUtils.swift in Sources */,
 				675CC008201B61A800D97072 /* AnyView.swift in Sources */,
 				6731019C2021FFA300D84501 /* RowsProvider+ToArray.swift in Sources */,
 				A14193992083706D0087201D /* AnyView+ShowPopup.swift in Sources */,

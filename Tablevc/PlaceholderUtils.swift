@@ -1,5 +1,5 @@
 //
-//  ContainersUtils.swift
+//  PlaceholderUtils.swift
 //  Tablevc
 //
 //  Created by Oleksii Horishnii on 1/27/18.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ContainersUtils {
+class PlaceholderUtils {
     public class func controllingViewController(view: UIView?) -> UIViewController? {
         var responder: UIResponder? = view
         while !(responder is UIViewController) {

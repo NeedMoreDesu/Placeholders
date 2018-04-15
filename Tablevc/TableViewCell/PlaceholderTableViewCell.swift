@@ -1,5 +1,5 @@
 //
-//  ContainersTableViewCell.swift
+//  PlaceholderTableViewCell.swift
 //  IHeardYouLiekViewControllers
 //
 //  Created by Oleksii Horishnii on 4/8/17.
@@ -9,12 +9,12 @@
 import Foundation
 import UIKit
 
-class ContainersTableViewCell: UITableViewCell {
+class PlaceholderTableViewCell: UITableViewCell {
     //MARK: cell creation
     class func registerReuseId(reuseId: String, tableView: UITableView) {
-        let type = ContainersTableViewCell.self
+        let type = PlaceholderTableViewCell.self
         let bundle = Bundle(for: type)
-        let nib = UINib(nibName: "ContainersTableViewCell", bundle: bundle)
+        let nib = UINib(nibName: "PlaceholderTableViewCell", bundle: bundle)
         tableView.register(nib, forCellReuseIdentifier: reuseId)
     }
     

@@ -1,6 +1,6 @@
 //
 //  ContainerView.swift
-//  Containers
+//  Placeholder
 //
 //  Created by Oleksii Horishnii on 4/8/17.
 //  Copyright © 2017 Oleksii Horishnii. All rights reserved.
@@ -12,7 +12,7 @@ import UIKit
 open class PlaceholderView: PassthroughView {
     open weak var controllingVC: UIViewController? // can be set from outside
     private var containerVC: UIViewController? {
-        return self.controllingVC ?? ContainersUtils.controllingViewController(view: self)
+        return self.controllingVC ?? PlaceholderUtils.controllingViewController(view: self)
     }
     
     open var insertedView: AnyView? {
