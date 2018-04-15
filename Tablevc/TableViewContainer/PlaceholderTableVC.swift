@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-open class VCSTableVC: UITableViewController {
+open class PlaceholderTableVC: UITableViewController {
     //MARK: input
     open var rowsProvider: RowsProvider<TableViewCellGenerator>? { // lazy provider of cell generators
         didSet {
@@ -27,13 +27,13 @@ open class VCSTableVC: UITableViewController {
     private var oldUpdateProvider: WeakItem? = nil
 
     //MARK: VC creation
-    open class func create(builderFn:((VCSTableVC) -> Void)? = nil) -> VCSTableVC {
-        let vc: VCSTableVC = PlaceholderUtils.createVC(storyboardId: "VCSTableView", vcId: "VCSTableVC")
+    open class func create(builderFn:((PlaceholderTableVC) -> Void)? = nil) -> PlaceholderTableVC {
+        let vc: PlaceholderTableVC = PlaceholderUtils.createVC(storyboardId: "PlaceholderTable", vcId: "PlaceholderTableVC")
         builderFn?(vc)
         return vc
     }
     //MARK: change values
-    func performChange(changeFn:((VCSTableVC) -> Void)? = nil) {
+    func performChange(changeFn:((PlaceholderTableVC) -> Void)? = nil) {
         changeFn?(self)
         self.updateUI()
     }
@@ -126,7 +126,7 @@ open class VCSTableVC: UITableViewController {
     }
 }
 
-extension VCSTableVC: RowsUpdateDelegate {
+extension PlaceholderTableVC: RowsUpdateDelegate {
     public func willChangeContent() {
         self.tableView.beginUpdates()
     }

@@ -10,12 +10,12 @@ import UIKit
 
 class ViewController: UIViewController {
     @IBOutlet weak var containerView: PlaceholderView!
-    var tableVC: VCSTableVC!
+    var tableVC: PlaceholderTableVC!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableVC = VCSTableVC.create(builderFn: { (vc) in
+        self.tableVC = PlaceholderTableVC.create(builderFn: { (vc) in
             let dataRows = RowsProvider(sections: { () -> Int in
                 return 5
             }, rows: { (section) -> Int in
