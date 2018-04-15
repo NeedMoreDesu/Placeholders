@@ -109,7 +109,6 @@
 				673101992021FE5E00D84501 /* RowsProvider+FromArray.swift */,
 				6731019B2021FFA300D84501 /* RowsProvider+ToArray.swift */,
 				672B9FED2024AAB7006268B7 /* RowsUpdateDelegate.swift */,
-				6754F8902063F057000F19C4 /* WeakArray.swift */,
 			);
 			path = RowsProvider;
 			sourceTree = "<group>";
@@ -117,7 +116,6 @@
 		6749F1872080F21400F5B861 /* Popups */ = {
 			isa = PBXGroup;
 			children = (
-				6749F18D2080F52700F5B861 /* PassthroughWindow.swift */,
 				6749F18F2080F60900F5B861 /* PlaceholderVC.swift */,
 				A14193982083706D0087201D /* AnyView+ShowPopup.swift */,
 				6749F1882080F42000F5B861 /* PlaceholderVC.storyboard */,
@@ -144,7 +142,7 @@
 		675CBFF2201B60A700D97072 /* Tablevc */ = {
 			isa = PBXGroup;
 			children = (
-				A1FD5727201CDB14006C25C1 /* PlaceholderUtils.swift */,
+				A141939A208373600087201D /* Utils */,
 				673101952021DCA100D84501 /* Abstracts */,
 				A1FD572A201CDCE3006C25C1 /* TableViewContainer */,
 				675CC00B201F6AE500D97072 /* TableViewCell */,
@@ -169,10 +167,20 @@
 			path = TableViewCell;
 			sourceTree = "<group>";
 		};
+		A141939A208373600087201D /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				A1FD5727201CDB14006C25C1 /* PlaceholderUtils.swift */,
+				6754F8902063F057000F19C4 /* WeakArray.swift */,
+				6749F18D2080F52700F5B861 /* PassthroughWindow.swift */,
+				A141939520836A370087201D /* PassthroughView.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		A1FD5729201CDCC7006C25C1 /* ViewContainer */ = {
 			isa = PBXGroup;
 			children = (
-				A141939520836A370087201D /* PassthroughView.swift */,
 				A1FD572B201CDF1D006C25C1 /* PlaceholderView.swift */,
 			);
 			path = ViewContainer;
