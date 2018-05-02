@@ -1,6 +1,6 @@
 //
 //  TableContents+FromArray.swift
-//  Tablevc
+//  Placeholder
 //
 //  Created by Oleksii Horishnii on 1/31/18.
 //  Copyright © 2018 Oleksii Horishnii. All rights reserved.
@@ -9,7 +9,7 @@
 import Foundation
 
 extension RowsProvider {
-    class func fromArray(array2d: [[Type]]) -> RowsProvider {
+    public class func fromArray(array2d: [[Type]]) -> RowsProvider {
         return RowsProvider(sections: { () -> Int in
             return array2d.count
         }, rows: { (section: Int) -> Int in
@@ -18,7 +18,7 @@ extension RowsProvider {
             return array2d[indexPath.section][indexPath.row]
         }
     }
-    class func fromArray(array1d: [Type]) -> RowsProvider {
+    public class func fromArray(array1d: [Type]) -> RowsProvider {
         return RowsProvider(sections: { () -> Int in
             return 1
         }, rows: { (section: Int) -> Int in

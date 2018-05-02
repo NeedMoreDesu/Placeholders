@@ -1,6 +1,6 @@
 //
 //  TableContents+ToArray.swift
-//  Tablevc
+//  Placeholder
 //
 //  Created by Oleksii Horishnii on 1/31/18.
 //  Copyright © 2018 Oleksii Horishnii. All rights reserved.
@@ -13,7 +13,7 @@ extension RowsProvider {
      This function is not lazy and generally
      should not be used except for debug purposes
      */
-    func toArray() -> [[Type]] {
+    public func toArray() -> [[Type]] {
         var sectionArray: [[Type]] = []
         for section in 0..<self.sections() {
             var rowArray: [Type] = []

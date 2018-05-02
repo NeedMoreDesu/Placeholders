@@ -27,15 +27,9 @@ open class PlaceholderTableVC: UITableViewController {
     private var oldUpdateProvider: WeakItem? = nil
 
     //MARK: VC creation
-    open class func create(builderFn:((PlaceholderTableVC) -> Void)? = nil) -> PlaceholderTableVC {
+    open class func create() -> PlaceholderTableVC {
         let vc: PlaceholderTableVC = PlaceholderUtils.createVC(storyboardId: "PlaceholderTable", vcId: "PlaceholderTableVC")
-        builderFn?(vc)
         return vc
-    }
-    //MARK: change values
-    func performChange(changeFn:((PlaceholderTableVC) -> Void)? = nil) {
-        changeFn?(self)
-        self.updateUI()
     }
     
     //MARK:- lifecycle

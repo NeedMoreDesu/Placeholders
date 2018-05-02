@@ -1,6 +1,6 @@
 //
 //  RowsUpdateDelegate.swift
-//  Tablevc
+//  Placeholder
 //
 //  Created by Oleksii Horishnii on 2/2/18.
 //  Copyright © 2018 Oleksii Horishnii. All rights reserved.

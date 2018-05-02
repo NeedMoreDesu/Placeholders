@@ -1,6 +1,6 @@
 //
 //  ColumnsProvider.swift
-//  Tablevc
+//  Placeholder
 //
 //  Created by Oleksii Horishnii on 2/2/18.
 //  Copyright © 2018 Oleksii Horishnii. All rights reserved.
@@ -14,7 +14,7 @@ import Foundation
 public class SectionsProvider<Type> {
     private var sectionFn: ((_ section: Int) -> Type?)
     
-    init(section: @escaping ((_ section: Int) -> Type?)) {
+    public init(section: @escaping ((_ section: Int) -> Type?)) {
         self.sectionFn = section
     }
     

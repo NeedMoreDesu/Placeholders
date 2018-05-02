@@ -1,6 +1,6 @@
 //
 //  PassthroughView.swift
-//  Tablevc
+//  Placeholder
 //
 //  Created by Oleksii Horishnii on 4/15/18.
 //  Copyright © 2018 Oleksii Horishnii. All rights reserved.

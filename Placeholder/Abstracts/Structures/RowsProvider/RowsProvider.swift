@@ -1,6 +1,6 @@
 //
 //  TableContentUpdater.swift
-//  Tablevc
+//  Placeholder
 //
 //  Created by Oleksii Horishnii on 1/29/18.
 //  Copyright © 2018 Oleksii Horishnii. All rights reserved.
@@ -20,7 +20,7 @@ public class RowsProvider<Type>: RowsUpdateDelegateProxy {
     private var itemFn: ((_ path: IndexPath) -> Type)
 
     //MARK:- constructor
-    init(sections: @escaping (() -> Int),
+    public init(sections: @escaping (() -> Int),
          rows: @escaping ((_ section: Int) -> Int),
          item: @escaping ((_ path: IndexPath) -> Type)) {
         self.sectionsFn = sections
@@ -29,7 +29,7 @@ public class RowsProvider<Type>: RowsUpdateDelegateProxy {
         self.updateDelegates = WeakArray<RowsUpdateDelegate>()
     }
     
-    func map<NewType>(transform: @escaping (Type) -> NewType) -> RowsProvider<NewType> {
+    public func map<NewType>(transform: @escaping (Type) -> NewType) -> RowsProvider<NewType> {
         let retval = RowsProvider<NewType>(sections: self.sectionsFn,
                                            rows: self.rowsFn)
         { (path) -> NewType in

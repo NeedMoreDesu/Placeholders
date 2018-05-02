@@ -1,6 +1,6 @@
 //
 //  PlaceholderUtils.swift
-//  Tablevc
+//  Placeholder
 //
 //  Created by Oleksii Horishnii on 1/27/18.
 //  Copyright © 2018 Oleksii Horishnii. All rights reserved.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class PlaceholderUtils {
+public class PlaceholderUtils {
     public class func controllingViewController(view: UIView?) -> UIViewController? {
         var responder: UIResponder? = view
         while !(responder is UIViewController) {

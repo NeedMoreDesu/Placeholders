@@ -1,6 +1,6 @@
 //
 //  CellGenerator.swift
-//  Tablevc
+//  Placeholder
 //
 //  Created by Oleksii Horishnii on 1/31/18.
 //  Copyright © 2018 Oleksii Horishnii. All rights reserved.
@@ -15,10 +15,10 @@ import UIKit
 public struct CellGenerator {
     public struct View {
         public var reuseId: String
-        var create: (() -> AnyView)
-        var update: ((AnyView, UIViewController) -> ())
+        public var create: (() -> AnyView)
+        public var update: ((AnyView, UIViewController) -> ())
         
-        init<Type>(create: @escaping (() -> Type),
+        public init<Type>(create: @escaping (() -> Type),
                    update: @escaping ((Type, UIViewController) -> ()),
                    reuseId: String? = nil)
             where Type: AnyView {
@@ -34,10 +34,10 @@ public struct CellGenerator {
     
     public struct Xib {
         public var reuseId: String
-        var nib: UINib
-        var update: ((Any, UIViewController) -> ())
+        public var nib: UINib
+        public var update: ((Any, UIViewController) -> ())
         
-        init<Type>(nib: UINib,
+        public init<Type>(nib: UINib,
                    update: @escaping ((Type, UIViewController) -> ()),
                    reuseId: String? = nil) {
             self.nib = nib
@@ -50,9 +50,9 @@ public struct CellGenerator {
     
     public struct Static {
         public var reuseId: String = "__staticView"
-        var get: ((UIViewController) -> AnyView)
+        public var get: ((UIViewController) -> AnyView)
         
-        init(_ get: @escaping ((UIViewController) -> AnyView)) {
+        public init(_ get: @escaping ((UIViewController) -> AnyView)) {
             self.get = get
         }
     }

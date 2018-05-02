@@ -1,6 +1,6 @@
 //
 //  TableViewCellGenerator.swift
-//  Tablevc
+//  Placeholder
 //
 //  Created by Oleksii Horishnii on 1/31/18.
 //  Copyright © 2018 Oleksii Horishnii. All rights reserved.
