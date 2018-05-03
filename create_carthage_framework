@@ -1,3 +1,10 @@
+#!/bin/sh
+
+ROOT_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+
+set -x
+cd $ROOT_DIR
+
 carthage build --no-skip-current
 carthage archive Placeholder
 # make github release with Placeholder.framework.zip in attachment
