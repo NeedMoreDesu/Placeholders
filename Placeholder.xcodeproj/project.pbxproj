@@ -12,8 +12,6 @@
 		675CBFF9201B60A700D97072 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 675CBFF7201B60A700D97072 /* Main.storyboard */; };
 		675CBFFB201B60A700D97072 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 675CBFFA201B60A700D97072 /* Assets.xcassets */; };
 		675CBFFE201B60A700D97072 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 675CBFFC201B60A700D97072 /* LaunchScreen.storyboard */; };
-		67F50ECA209A0285007942EF /* Placeholder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67F50EC1209A0285007942EF /* Placeholder.framework */; };
-		67F50ED1209A0285007942EF /* PlaceholderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F50ED0209A0285007942EF /* PlaceholderTests.swift */; };
 		67F50ED3209A0285007942EF /* Placeholder.h in Headers */ = {isa = PBXBuildFile; fileRef = 67F50EC3209A0285007942EF /* Placeholder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		67F50ED6209A0285007942EF /* Placeholder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67F50EC1209A0285007942EF /* Placeholder.framework */; };
 		67F50ED8209A0285007942EF /* Placeholder.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 67F50EC1209A0285007942EF /* Placeholder.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -40,20 +38,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		67F50ECB209A0285007942EF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 675CBFE8201B60A700D97072 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 67F50EC0209A0285007942EF;
-			remoteInfo = Placeholder;
-		};
-		67F50ECD209A0285007942EF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 675CBFE8201B60A700D97072 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 675CBFEF201B60A700D97072;
-			remoteInfo = Tablevc;
-		};
 		67F50ED4209A0285007942EF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 675CBFE8201B60A700D97072 /* Project object */;
@@ -100,7 +84,6 @@
 		67F50EC1209A0285007942EF /* Placeholder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Placeholder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67F50EC3209A0285007942EF /* Placeholder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Placeholder.h; sourceTree = "<group>"; };
 		67F50EC4209A0285007942EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		67F50EC9209A0285007942EF /* PlaceholderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlaceholderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		67F50ED0209A0285007942EF /* PlaceholderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderTests.swift; sourceTree = "<group>"; };
 		67F50ED2209A0285007942EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A141939520836A370087201D /* PassthroughView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassthroughView.swift; sourceTree = "<group>"; };
@@ -126,14 +109,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		67F50EC6209A0285007942EF /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				67F50ECA209A0285007942EF /* Placeholder.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,7 +178,6 @@
 			children = (
 				675CBFF0201B60A700D97072 /* Example1.app */,
 				67F50EC1209A0285007942EF /* Placeholder.framework */,
-				67F50EC9209A0285007942EF /* PlaceholderTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -334,25 +308,6 @@
 			productReference = 67F50EC1209A0285007942EF /* Placeholder.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		67F50EC8209A0285007942EF /* PlaceholderTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 67F50EDE209A0285007942EF /* Build configuration list for PBXNativeTarget "PlaceholderTests" */;
-			buildPhases = (
-				67F50EC5209A0285007942EF /* Sources */,
-				67F50EC6209A0285007942EF /* Frameworks */,
-				67F50EC7209A0285007942EF /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				67F50ECC209A0285007942EF /* PBXTargetDependency */,
-				67F50ECE209A0285007942EF /* PBXTargetDependency */,
-			);
-			name = PlaceholderTests;
-			productName = PlaceholderTests;
-			productReference = 67F50EC9209A0285007942EF /* PlaceholderTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -372,14 +327,9 @@
 						CreatedOnToolsVersion = 9.3;
 						ProvisioningStyle = Automatic;
 					};
-					67F50EC8209A0285007942EF = {
-						CreatedOnToolsVersion = 9.3;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 675CBFEF201B60A700D97072;
-					};
 				};
 			};
-			buildConfigurationList = 675CBFEB201B60A700D97072 /* Build configuration list for PBXProject "Tablevc" */;
+			buildConfigurationList = 675CBFEB201B60A700D97072 /* Build configuration list for PBXProject "Placeholder" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -394,7 +344,6 @@
 			targets = (
 				675CBFEF201B60A700D97072 /* Example1 */,
 				67F50EC0209A0285007942EF /* Placeholder */,
-				67F50EC8209A0285007942EF /* PlaceholderTests */,
 			);
 		};
 /* End PBXProject section */
@@ -417,13 +366,6 @@
 				67F50EF6209A0338007942EF /* PlaceholderVC.storyboard in Resources */,
 				67F50EEE209A0328007942EF /* PlaceholderTable.storyboard in Resources */,
 				67F50EF1209A032D007942EF /* PlaceholderTableViewCell.xib in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		67F50EC7209A0285007942EF /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -463,27 +405,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		67F50EC5209A0285007942EF /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				67F50ED1209A0285007942EF /* PlaceholderTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		67F50ECC209A0285007942EF /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 67F50EC0209A0285007942EF /* Placeholder */;
-			targetProxy = 67F50ECB209A0285007942EF /* PBXContainerItemProxy */;
-		};
-		67F50ECE209A0285007942EF /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 675CBFEF201B60A700D97072 /* Example1 */;
-			targetProxy = 67F50ECD209A0285007942EF /* PBXContainerItemProxy */;
-		};
 		67F50ED5209A0285007942EF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 67F50EC0209A0285007942EF /* Placeholder */;
@@ -627,7 +551,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Example1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = divniy.Tablevc;
+				PRODUCT_BUNDLE_IDENTIFIER = divniy.Example1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
@@ -646,7 +570,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Example1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = divniy.Tablevc;
+				PRODUCT_BUNDLE_IDENTIFIER = divniy.Example1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
@@ -709,50 +633,10 @@
 			};
 			name = Release;
 		};
-		67F50EDB209A0285007942EF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4E5RGWF5Z6;
-				INFOPLIST_FILE = PlaceholderTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = levi9.PlaceholderTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tablevc.app/Tablevc";
-			};
-			name = Debug;
-		};
-		67F50EDC209A0285007942EF /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4E5RGWF5Z6;
-				INFOPLIST_FILE = PlaceholderTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = levi9.PlaceholderTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tablevc.app/Tablevc";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		675CBFEB201B60A700D97072 /* Build configuration list for PBXProject "Tablevc" */ = {
+		675CBFEB201B60A700D97072 /* Build configuration list for PBXProject "Placeholder" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				675CC000201B60A700D97072 /* Debug */,
@@ -775,15 +659,6 @@
 			buildConfigurations = (
 				67F50ED9209A0285007942EF /* Debug */,
 				67F50EDA209A0285007942EF /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		67F50EDE209A0285007942EF /* Build configuration list for PBXNativeTarget "PlaceholderTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				67F50EDB209A0285007942EF /* Debug */,
-				67F50EDC209A0285007942EF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
