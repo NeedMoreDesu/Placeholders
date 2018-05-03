@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Placeholder
+import Placeholders
 
 class ViewController: UIViewController {
     @IBOutlet weak var containerView: PlaceholderView!

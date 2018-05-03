@@ -6,5 +6,5 @@ set -x
 cd $ROOT_DIR
 
 carthage build --no-skip-current
-carthage archive Placeholder
+carthage archive Placeholders
 # make github release with Placeholder.framework.zip in attachment
