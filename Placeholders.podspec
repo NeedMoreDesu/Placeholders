@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|  
-  s.name              = 'Placeholder'
+  s.name              = 'Placeholders'
   s.version           = '0.0.3'
   s.summary           = 'Make placeholder views in your storyboard, add views or viewcontrollers later'
 
