@@ -54,8 +54,8 @@ public class PlaceholderUtils {
     }
     
     public class func createVC<Type>(storyboardId: String, vcId: String) -> Type {
-        let type = Type.self as! AnyClass
-        let bundle = Bundle(for: type)
+        let type = Type.self
+        let bundle = Bundle(for: type as! AnyClass)
         let storyboard = UIStoryboard.init(name: storyboardId, bundle: bundle)
         let vc = storyboard.instantiateViewController(withIdentifier: vcId)
         
