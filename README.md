@@ -12,7 +12,7 @@ Placeholders to your `Cartfile`:
 github "NeedMoreDesu/Placeholder"
 ```
 
-If you use Carthage to build your dependencies, make sure you have added `Placeholders.framework`, `ReactiveSwift.framework`, and `Result.framework` to the "_Linked Frameworks and Libraries_" section of your target, and have included them in your Carthage framework copying build phase.
+If you use Carthage to build your dependencies, make sure you have added `Placeholders.framework` to the "_Linked Frameworks and Libraries_" section of your target, and have included them in your Carthage framework copying build phase.
 
 #### CocoaPods
 
