@@ -12,7 +12,9 @@ Placeholders to your `Cartfile`:
 github "NeedMoreDesu/Placeholder"
 ```
 
-If you use Carthage to build your dependencies, make sure you have added `Placeholders.framework` to the "_Linked Frameworks and Libraries_" section of your target, and have included them in your Carthage framework copying build phase.
+See `CarthageExample/` sample project.
+
+Note: interface builder doesn't autocomplete Class and Module from Carthage packets as for now (4 May 2018). You need to specify both manually for it to work.
 
 #### CocoaPods
 
@@ -22,6 +24,8 @@ Placeholders to your `Podfile`:
 ```
 pod 'Placeholders'
 ```
+
+See `CocoapodsExample/` sample project.
 
 [Carthage]: https://github.com/Carthage/Carthage
 [CocoaPods]: https://cocoapods.org/
