@@ -20,7 +20,7 @@ open class PlaceholderView: PassthroughView {
             guard let newValue = self.insertedView else {
                 return
             }
-            if let oldValue = oldValue, newValue.view == oldValue.view {
+            if let oldValue = oldValue, newValue.asView == oldValue.asView {
                 return
             }
             oldValue?.remove()

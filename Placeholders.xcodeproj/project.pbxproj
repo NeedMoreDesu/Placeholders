@@ -84,8 +84,6 @@
 		67F50EC1209A0285007942EF /* Placeholders.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Placeholders.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67F50EC3209A0285007942EF /* Placeholders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Placeholders.h; sourceTree = "<group>"; };
 		67F50EC4209A0285007942EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		67F50ED0209A0285007942EF /* PlaceholderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderTests.swift; sourceTree = "<group>"; };
-		67F50ED2209A0285007942EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A141939520836A370087201D /* PassthroughView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassthroughView.swift; sourceTree = "<group>"; };
 		A14193982083706D0087201D /* AnyView+ShowPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnyView+ShowPopup.swift"; sourceTree = "<group>"; };
 		A1FD5727201CDB14006C25C1 /* PlaceholderUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderUtils.swift; sourceTree = "<group>"; };
@@ -168,7 +166,6 @@
 			children = (
 				675CBFF2201B60A700D97072 /* Example1 */,
 				67F50EC2209A0285007942EF /* Placeholders */,
-				67F50ECF209A0285007942EF /* PlaceholderTests */,
 				675CBFF1201B60A700D97072 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -217,15 +214,6 @@
 				67F50EC4209A0285007942EF /* Info.plist */,
 			);
 			path = Placeholders;
-			sourceTree = "<group>";
-		};
-		67F50ECF209A0285007942EF /* PlaceholderTests */ = {
-			isa = PBXGroup;
-			children = (
-				67F50ED0209A0285007942EF /* PlaceholderTests.swift */,
-				67F50ED2209A0285007942EF /* Info.plist */,
-			);
-			path = PlaceholderTests;
 			sourceTree = "<group>";
 		};
 		A141939A208373600087201D /* Utils */ = {

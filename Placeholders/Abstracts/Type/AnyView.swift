@@ -13,7 +13,7 @@ import UIKit
 public protocol AnyView {
     func add(to: UIViewController?, into: UIView)
     func remove()
-    var view: UIView! { get }
+    var asView: UIView! { get }
 }
 
 extension UIView: AnyView {
@@ -26,7 +26,7 @@ extension UIView: AnyView {
         self.removeFromSuperview()
     }
     
-    public var view: UIView! {
+    public var asView: UIView! {
         return self
     }
 }
@@ -44,5 +44,9 @@ extension UIViewController: AnyView {
         self.willMove(toParentViewController: nil)
         self.view.removeFromSuperview()
         self.removeFromParentViewController()
+    }
+    
+    public var asView: UIView! {
+        return self.view
     }
 }

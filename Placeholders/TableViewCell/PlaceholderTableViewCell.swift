@@ -19,17 +19,20 @@ class PlaceholderTableViewCell: UITableViewCell {
     }
     
     //MARK: public
-    open weak var controllingVC: UIViewController? // must be set from outside
+    open weak var controllingVC: UIViewController? // can be set from outside
+    private var containerVC: UIViewController? {
+        return self.controllingVC ?? PlaceholderUtils.controllingViewController(view: self)
+    }
     open var insertedView: AnyView? {
         didSet {
             guard let newValue = self.insertedView else {
                 return
             }
-            if let oldValue = oldValue, newValue.view == oldValue.view {
+            if let oldValue = oldValue, newValue.asView == oldValue.asView {
                 return
             }
             oldValue?.remove()
-            newValue.add(to: self.controllingVC, into: self)
+            newValue.add(to: self.containerVC, into: self)
         }
     }
     open func vc<Type>(type: Type.Type? = nil) -> Type {

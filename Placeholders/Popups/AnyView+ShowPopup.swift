@@ -12,7 +12,7 @@ import UIKit
 extension AnyView {
     public func showPopup(level: UIWindowLevel = UIWindowLevelAlert+10) -> PlaceholderVC {
         let popup = PlaceholderVC.create()
-        popup.placeholder.insertedView = self.view
+        popup.placeholder.insertedView = self.asView
         popup.showPopup(level: level)
         return popup
     }

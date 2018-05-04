@@ -11,7 +11,11 @@ import UIKit
 
 public class PlaceholderUtils {
     public class func controllingViewController(view: UIView?) -> UIViewController? {
-        var responder: UIResponder? = view
+        var rootView = view
+        while rootView?.superview != nil {
+            rootView = rootView?.superview
+        }
+        var responder: UIResponder? = rootView
         while !(responder is UIViewController) {
             responder = responder?.next
             if nil == responder {
