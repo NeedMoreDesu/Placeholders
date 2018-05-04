@@ -1,0 +1,16 @@
+PODS:
+  - Placeholders (0.0.4)
+
+DEPENDENCIES:
+  - Placeholders
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Placeholders
+
+SPEC CHECKSUMS:
+  Placeholders: 3dd20ecb2d0fe2fdb34adcd967ae01bce446f4d7
+
+PODFILE CHECKSUM: d50e3f9e8f48ef04fa8c8f229f1af3004713c759
+
+COCOAPODS: 1.5.0
