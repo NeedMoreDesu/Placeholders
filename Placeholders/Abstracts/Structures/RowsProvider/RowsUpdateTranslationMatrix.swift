@@ -68,6 +68,20 @@ class RowsUpdateTranslationMatrix: WeakItem, RowsUpdateDelegate {
         self.target?.update(paths: newPaths)
     }
     
+    func sectionInsert(sections: [Int]) {
+        let newSections = sections.map { section in
+            return section + (self.sectionShift ?? 0)
+        }
+        self.target?.sectionInsert(sections: newSections)
+    }
+    
+    func sectionDelete(sections: [Int]) {
+        let newSections = sections.map { section in
+            return section + (self.sectionShift ?? 0)
+        }
+        self.target?.sectionDelete(sections: newSections)
+    }
+    
     func updateUI() {
         self.target?.updateUI()
     }

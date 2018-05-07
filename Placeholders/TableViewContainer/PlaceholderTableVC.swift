@@ -140,4 +140,12 @@ extension PlaceholderTableVC: RowsUpdateDelegate {
     public func update(paths: [IndexPath]) {
         self.tableView.reloadRows(at: paths, with: .automatic)
     }
+    
+    public func sectionInsert(sections: [Int]) {
+        self.tableView.deleteSections(IndexSet(sections), with: .fade)
+    }
+    
+    public func sectionDelete(sections: [Int]) {
+        self.tableView.insertSections(IndexSet(sections), with: .automatic)
+    }
 }

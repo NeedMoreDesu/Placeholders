@@ -19,6 +19,9 @@ public protocol RowsUpdateDelegate: class {
     func delete(paths: [IndexPath])
     func update(paths: [IndexPath])
     
+    func sectionInsert(sections: [Int])
+    func sectionDelete(sections: [Int])
+
     func updateUI()
 }
 
@@ -50,7 +53,15 @@ extension RowsUpdateDelegateProxy {
     public func update(paths: [IndexPath]) {
         self.updateDelegates.items().forEach { $0.update(paths: paths) }
     }
-    
+
+    public func sectionInsert(sections: [Int]) {
+        self.updateDelegates.items().forEach { $0.sectionInsert(sections: sections) }
+    }
+
+    public func sectionDelete(sections: [Int]) {
+        self.updateDelegates.items().forEach { $0.sectionDelete(sections: sections) }
+    }
+
     public func updateUI() {
         self.updateDelegates.items().forEach { $0.updateUI() }
     }
