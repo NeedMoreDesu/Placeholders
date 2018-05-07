@@ -19,9 +19,9 @@ class PlaceholderTableViewCell: UITableViewCell {
     }
     
     //MARK: public
-    open weak var controllingVC: UIViewController? // can be set from outside
+    open weak var controllingVC: UIViewController? // must be set from outside
     private var containerVC: UIViewController? {
-        return self.controllingVC ?? PlaceholderUtils.controllingViewController(view: self)
+        return self.controllingVC!
     }
     open var insertedView: AnyView? {
         didSet {
