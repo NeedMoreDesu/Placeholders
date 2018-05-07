@@ -18,7 +18,7 @@ extension RowsProvider {
         for section in 0..<self.sections() {
             var rowArray: [Type] = []
             for row in 0..<self.rows(section: section) {
-                let element = self.generator(path: IndexPath(row: row, section: section))
+                let element = self.item(path: IndexPath(row: row, section: section))
                 rowArray.append(element)
             }
             sectionArray.append(rowArray)

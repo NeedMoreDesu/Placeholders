@@ -26,17 +26,27 @@ class ViewController: UIViewController {
             return "row: \(indexPath.row); section: \(indexPath.section);"
         })
         
-        let generatorRows = dataRows.map(transform: { (title: String) -> TableViewCellGenerator in
-            return CellGenerator.View(create: { () -> UILabel in
+        let generatorRows = dataRows.map(transform: { (title: String) -> CellGenerator in
+            return CellGenerator(create: .generator({ () -> UILabel in
                 return UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
-            }, update: { (label: UILabel, vc: UIViewController) -> () in
+            }), update: { (label: UILabel, vc: UIViewController) -> () in
                 label.text = title
             })
         })
         
-        self.tableVC.rowsProvider = generatorRows
+        let topLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
+        topLabel.text = "Cell that I want to add on top"
         
-        self.tableVC.sectionsHeaderProvider = SectionsProvider(section: { (section: Int) -> UILabel in
+        let finalRows = topLabel.toCellGenerator().toSingleItemRowsProvider() + generatorRows
+        
+        self.tableVC.rowsProvider = finalRows
+        
+        self.tableVC.sectionsHeaderProvider = SectionsProvider(section: { (section: Int) -> UILabel? in
+            if (section == 0) {
+                return nil
+            }
+            let section = section - 1
+            
             let label = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
             label.text = "section \(section)"
             label.backgroundColor = UIColor(red: 220/255.0, green: 150/255.0, blue: 200/255.0, alpha: 1.0)

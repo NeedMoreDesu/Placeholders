@@ -18,41 +18,34 @@ public protocol TableViewCellGenerator {
     func updateCell(cell: UITableViewCell, vc: UIViewController)
 }
 
-extension CellGenerator.View: TableViewCellGenerator {
+extension CellGenerator: TableViewCellGenerator {
     public func registerReuseId(tableView: UITableView) {
-        PlaceholderTableViewCell.registerReuseId(reuseId: self.reuseId, tableView: tableView)
-    }
-    
-    public func updateCell(cell: UITableViewCell, vc: UIViewController) {
-        if let cell = cell as? PlaceholderTableViewCell {
-            if cell.insertedView == nil {
-                cell.controllingVC = vc
-                cell.insertedView = self.create()
-            }
-            self.update(cell.insertedView!, vc)
+        switch self.create {
+        case .existingView(_), .generator(_):
+            PlaceholderTableViewCell.registerReuseId(reuseId: self.reuseId, tableView: tableView)
+        case .xib(let nib):
+            tableView.register(nib, forCellReuseIdentifier: self.reuseId)
         }
     }
-}
-
-extension CellGenerator.Xib: TableViewCellGenerator {
-    public func registerReuseId(tableView: UITableView) {
-        tableView.register(self.nib, forCellReuseIdentifier: self.reuseId)
-    }
     
     public func updateCell(cell: UITableViewCell, vc: UIViewController) {
-        self.update(cell, vc)
-    }
-}
-
-extension CellGenerator.Static: TableViewCellGenerator {
-    public func registerReuseId(tableView: UITableView) {
-        PlaceholderTableViewCell.registerReuseId(reuseId: self.reuseId, tableView: tableView)
-    }
-    
-    public func updateCell(cell: UITableViewCell, vc: UIViewController) {
-        if let cell = cell as? PlaceholderTableViewCell {
-            cell.controllingVC = vc
-            cell.insertedView = get(vc)
+        switch self.create {
+        case .existingView(let view):
+            if let cell = cell as? PlaceholderTableViewCell {
+                cell.controllingVC = vc
+                cell.insertedView = view
+                self.update?(cell.insertedView!, vc)
+            }
+        case .generator(let generator):
+            if let cell = cell as? PlaceholderTableViewCell {
+                if cell.insertedView == nil {
+                    cell.controllingVC = vc
+                    cell.insertedView = generator()
+                }
+                self.update?(cell.insertedView!, vc)
+            }
+        case .xib(_):
+            self.update?(cell, vc)
         }
     }
 }

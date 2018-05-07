@@ -33,12 +33,35 @@ public class RowsProvider<Type>: RowsUpdateDelegateProxy {
         let retval = RowsProvider<NewType>(sections: self.sectionsFn,
                                            rows: self.rowsFn)
         { (path) -> NewType in
-            return transform(self.generator(path: path))
+            return transform(self.item(path: path))
         }
         let _ = self.updateDelegates.add(item: retval)
         return retval
     }
-
+    
+    public static func combineAddingSections<SameType>(left: RowsProvider<SameType>, right: RowsProvider<SameType>) -> RowsProvider<SameType> {
+        let retval = RowsProvider<SameType>(sections: { () -> Int in
+            return left.sections() + right.sections()
+        }, rows: { (section) -> Int in
+            if section < left.sections() {
+                return left.rows(section: section)
+            } else {
+                return right.rows(section: section)
+            }
+        }, item: { (indexPath: IndexPath) -> SameType in
+            if indexPath.section < left.sections() {
+                return left.item(path: indexPath)
+            } else {
+                let path = IndexPath(row: indexPath.row, section: indexPath.section - left.sections())
+                return right.item(path: path)
+            }
+        })
+        let _ = left.updateDelegates.add(item: retval)
+        let transitionMatrix = RowsUpdateTranslationMatrix(target: retval, sectionShift: left.sections(), rowShift: nil)
+        let _ = right.updateDelegates.add(weakItem: transitionMatrix)
+        return retval
+    }
+    
     //MARK:- publics
     
     // use .updateDelegates.add(item: ...) to subscribe for updates
@@ -49,7 +72,11 @@ public class RowsProvider<Type>: RowsUpdateDelegateProxy {
     public func rows(section: Int) -> Int {
         return self.rowsFn(section)
     }
-    public func generator(path: IndexPath) -> Type {
+    public func item(path: IndexPath) -> Type {
         return self.itemFn(path)
     }
+}
+
+public func +<SameType>(left: RowsProvider<SameType>, right: RowsProvider<SameType>) -> RowsProvider<SameType> {
+    return RowsProvider<SameType>.combineAddingSections(left: left, right: right) as RowsProvider<SameType>
 }

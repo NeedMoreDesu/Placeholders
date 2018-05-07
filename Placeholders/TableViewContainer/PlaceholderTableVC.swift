@@ -11,14 +11,14 @@ import UIKit
 
 open class PlaceholderTableVC: UITableViewController {
     //MARK: input
-    open var rowsProvider: RowsProvider<TableViewCellGenerator>? { // lazy provider of cell generators
+    open var rowsProvider: RowsProvider<CellGenerator>? { // lazy provider of cell generators
         didSet {
             self.oldUpdateProvider?.remove() // removing old onee from subscription array
             self.oldUpdateProvider = self.rowsProvider?.updateDelegates.add(item: self) // subscribe to updates from new provider
         }
     }
-    open var sectionsHeaderProvider: SectionsProvider<AnyView>?
-    open var sectionsFooterProvider: SectionsProvider<AnyView>?
+    open var sectionsHeaderProvider: SectionsProvider<AnyView?>?
+    open var sectionsFooterProvider: SectionsProvider<AnyView?>?
     open var estimatedRowHeight: Double = 42.0 { didSet { self.updateUI() } }
     open var estimatedSectionHeaderHeight: Double = 42.0 { didSet { self.updateUI() } }
     open var estimatedSectionFooterHeight: Double = 42.0 { didSet { self.updateUI() } }
@@ -107,7 +107,7 @@ open class PlaceholderTableVC: UITableViewController {
     }
     
     override open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let generator = self.rowsProvider?.generator(path: indexPath) {
+        if let generator = self.rowsProvider?.item(path: indexPath) {
             if (!self.reuseIds.contains(generator.reuseId)) {
                 generator.registerReuseId(tableView: tableView)
                 self.reuseIds.insert(generator.reuseId)

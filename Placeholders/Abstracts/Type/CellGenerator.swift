@@ -13,47 +13,58 @@ import UIKit
  Abstract entity, describing how to create and reuse-update view
  */
 public struct CellGenerator {
-    public struct View {
-        public var reuseId: String
-        public var create: (() -> AnyView)
-        public var update: ((AnyView, UIViewController) -> ())
+    public enum Creator {
+        case generator((() -> AnyView))
+        case existingView(AnyView)
+        case xib(UINib)
         
-        public init<Type>(create: @escaping (() -> Type),
-                   update: @escaping ((Type, UIViewController) -> ()),
-                   reuseId: String? = nil)
-            where Type: AnyView {
-                self.create = { () -> AnyView in
-                    return create() as AnyView
-                }
-                self.update = { (anyView: AnyView, vc: UIViewController) -> () in
-                    update(anyView as! Type, vc)
-                }
-                self.reuseId = reuseId ?? String(describing: Type.self)
-        }
-    }
-    
-    public struct Xib {
-        public var reuseId: String
-        public var nib: UINib
-        public var update: ((Any, UIViewController) -> ())
-        
-        public init<Type>(nib: UINib,
-                   update: @escaping ((Type, UIViewController) -> ()),
-                   reuseId: String? = nil) {
-            self.nib = nib
-            self.update = { (cell: Any, vc: UIViewController) -> () in
-                update(cell as! Type, vc)
+        func typeString() -> String {
+            switch self {
+            case .generator(_):
+                return "generator"
+            case .existingView(_):
+                return "existingView"
+            case .xib(_):
+                return "xib"
             }
-            self.reuseId = reuseId ?? String(describing: Type.self)
         }
     }
-    
-    public struct Static {
-        public var reuseId: String = "__staticView"
-        public var get: ((UIViewController) -> AnyView)
-        
-        public init(_ get: @escaping ((UIViewController) -> AnyView)) {
-            self.get = get
+
+    public var create: Creator
+    public var update: ((AnyView, UIViewController) -> ())?
+    public var reuseId: String
+
+    public init(create: Creator,
+                reuseId: String) {
+        self.create = create
+        self.reuseId = reuseId
+    }
+
+    public init<Type>(create: Creator,
+                      update: @escaping ((Type, UIViewController) -> ()),
+                      reuseId: String? = nil) {
+        self.create = create
+        self.update =  { (anyView: AnyView, vc: UIViewController) -> () in
+            update(anyView as! Type, vc)
         }
+        self.reuseId = reuseId ?? create.typeString() + String(describing: Type.self)
+    }
+}
+
+extension AnyView {
+    public func toCellGenerator() -> CellGenerator {
+        return CellGenerator(create: CellGenerator.Creator.existingView(self), reuseId: "__staticView")
+    }
+}
+
+extension CellGenerator {
+    public func toSingleItemRowsProvider() -> RowsProvider<CellGenerator> {
+        return RowsProvider(sections: { () -> Int in
+            return 1
+        }, rows: { (_) -> Int in
+            return 1
+        }, item: { _ -> CellGenerator in
+            return self
+        })
     }
 }
