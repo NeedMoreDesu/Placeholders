@@ -110,7 +110,7 @@
 		6749F18D2080F52700F5B861 /* PassthroughWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassthroughWindow.swift; sourceTree = "<group>"; };
 		6749F18F2080F60900F5B861 /* PlaceholderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderVC.swift; sourceTree = "<group>"; };
 		6754F8902063F057000F19C4 /* WeakArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakArray.swift; sourceTree = "<group>"; };
-		675CBFF0201B60A700D97072 /* Example1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example1.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		675CBFF0201B60A700D97072 /* ExampleSimple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleSimple.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		675CBFF3201B60A700D97072 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		675CBFF5201B60A700D97072 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		675CBFF8201B60A700D97072 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -255,7 +255,7 @@
 		675CBFE7201B60A700D97072 = {
 			isa = PBXGroup;
 			children = (
-				675CBFF2201B60A700D97072 /* Example1 */,
+				675CBFF2201B60A700D97072 /* ExampleSimple */,
 				67471FF720A1F1B7007026CA /* ExampleCoreData */,
 				67F50EC2209A0285007942EF /* Placeholders */,
 				67471FE020A07F6E007026CA /* Placeholders+CoreData */,
@@ -267,7 +267,7 @@
 		675CBFF1201B60A700D97072 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				675CBFF0201B60A700D97072 /* Example1.app */,
+				675CBFF0201B60A700D97072 /* ExampleSimple.app */,
 				67F50EC1209A0285007942EF /* Placeholders.framework */,
 				67471FDF20A07F6E007026CA /* Placeholders_CoreData.framework */,
 				67471FF620A1F1B7007026CA /* ExampleCoreData.app */,
@@ -275,7 +275,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		675CBFF2201B60A700D97072 /* Example1 */ = {
+		675CBFF2201B60A700D97072 /* ExampleSimple */ = {
 			isa = PBXGroup;
 			children = (
 				675CBFF3201B60A700D97072 /* AppDelegate.swift */,
@@ -285,7 +285,7 @@
 				675CBFFC201B60A700D97072 /* LaunchScreen.storyboard */,
 				675CBFFF201B60A700D97072 /* Info.plist */,
 			);
-			path = Example1;
+			path = ExampleSimple;
 			sourceTree = "<group>";
 		};
 		675CC00B201F6AE500D97072 /* TableViewCell */ = {
@@ -398,9 +398,9 @@
 			productReference = 67471FF620A1F1B7007026CA /* ExampleCoreData.app */;
 			productType = "com.apple.product-type.application";
 		};
-		675CBFEF201B60A700D97072 /* Example1 */ = {
+		675CBFEF201B60A700D97072 /* ExampleSimple */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 675CC002201B60A700D97072 /* Build configuration list for PBXNativeTarget "Example1" */;
+			buildConfigurationList = 675CC002201B60A700D97072 /* Build configuration list for PBXNativeTarget "ExampleSimple" */;
 			buildPhases = (
 				675CBFEC201B60A700D97072 /* Sources */,
 				675CBFED201B60A700D97072 /* Frameworks */,
@@ -413,9 +413,9 @@
 				67F50ED5209A0285007942EF /* PBXTargetDependency */,
 				67471FEB20A07FCA007026CA /* PBXTargetDependency */,
 			);
-			name = Example1;
+			name = ExampleSimple;
 			productName = Tablevc;
-			productReference = 675CBFF0201B60A700D97072 /* Example1.app */;
+			productReference = 675CBFF0201B60A700D97072 /* ExampleSimple.app */;
 			productType = "com.apple.product-type.application";
 		};
 		67F50EC0209A0285007942EF /* Placeholders */ = {
@@ -479,7 +479,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				675CBFEF201B60A700D97072 /* Example1 */,
+				675CBFEF201B60A700D97072 /* ExampleSimple */,
 				67471FF520A1F1B7007026CA /* ExampleCoreData */,
 				67F50EC0209A0285007942EF /* Placeholders */,
 				67471FDE20A07F6E007026CA /* Placeholders+CoreData */,
@@ -836,9 +836,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Example1/Info.plist;
+				INFOPLIST_FILE = ExampleSimple/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = divniy.Example1;
+				PRODUCT_BUNDLE_IDENTIFIER = divniy.ExampleSimple;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
@@ -855,9 +855,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Example1/Info.plist;
+				INFOPLIST_FILE = ExampleSimple/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = divniy.Example1;
+				PRODUCT_BUNDLE_IDENTIFIER = divniy.ExampleSimple;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
@@ -950,7 +950,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		675CC002201B60A700D97072 /* Build configuration list for PBXNativeTarget "Example1" */ = {
+		675CC002201B60A700D97072 /* Build configuration list for PBXNativeTarget "ExampleSimple" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				675CC003201B60A700D97072 /* Debug */,

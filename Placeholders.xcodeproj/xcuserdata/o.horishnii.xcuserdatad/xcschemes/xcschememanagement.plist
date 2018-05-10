@@ -4,15 +4,15 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Example1.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>2</integer>
-		</dict>
 		<key>ExampleCoreData.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>4</integer>
+		</dict>
+		<key>ExampleSimple.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
 		</dict>
 		<key>Placeholders+CoreData.xcscheme</key>
 		<dict>
@@ -32,6 +32,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>67471FF520A1F1B7007026CA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>67F50EC0209A0285007942EF</key>
 		<dict>
 			<key>primary</key>

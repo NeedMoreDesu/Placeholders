@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  Example1
+//  ExampleSimple
 //
 //  Created by Oleksii Horishnii on 1/26/18.
 //  Copyright © 2018 Oleksii Horishnii. All rights reserved.
