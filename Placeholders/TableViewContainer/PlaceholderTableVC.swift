@@ -152,7 +152,7 @@ extension PlaceholderTableVC: RowsUpdateDelegate {
     }
     
     public func delete(paths: [IndexPath]) {
-        self.tableView.deleteRows(at: paths, with: .fade)
+        self.tableView.deleteRows(at: paths, with: .automatic)
     }
     
     public func update(paths: [IndexPath]) {
@@ -160,7 +160,7 @@ extension PlaceholderTableVC: RowsUpdateDelegate {
     }
     
     public func sectionInsert(sections: [Int]) {
-        self.tableView.deleteSections(IndexSet(sections), with: .fade)
+        self.tableView.deleteSections(IndexSet(sections), with: .automatic)
     }
     
     public func sectionDelete(sections: [Int]) {
