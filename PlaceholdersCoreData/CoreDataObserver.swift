@@ -1,6 +1,6 @@
 //
 //  CoreDataObserver.swift
-//  Placeholders+CoreData
+//  PlaceholdersCoreData
 //
 //  Created by Oleksii Horishnii on 5/7/18.
 //  Copyright © 2018 Oleksii Horishnii. All rights reserved.
@@ -63,18 +63,17 @@ open class CoreDataObserver<Type>: NSObject, NSFetchedResultsControllerDelegate 
                                                                              params: params)
         let observer = CoreDataObserver(fetchedResultController: fetchedResultController)
         
-        return observer.setupObservedSections()
+        return observer.setup()
     }
     
     public class func create(fetchedResultController: NSFetchedResultsController<Type>) -> RowsProvider<Type> {
         let observer = CoreDataObserver(fetchedResultController: fetchedResultController)
         
-        return observer.setupObservedSections()
+        return observer.setup()
     }
     
     weak var rows: RowsProvider<Type>?
-    weak var sections: SectionsProvider<Type>?
-    private func setupObservedSections() -> RowsProvider<Type> {
+    private func setup() -> RowsProvider<Type> {
         let rows = RowsProvider(sections: { () -> Int in
             return self.controller.sections?.count ?? 0
         }, rows: { (section) -> Int in
@@ -84,10 +83,12 @@ open class CoreDataObserver<Type>: NSObject, NSFetchedResultsControllerDelegate 
                 }
             }
             return 0
-        }) { (indexPath) -> Type in
+        },
+           item: { (indexPath) -> Type in
             let obj = self.controller.object(at: IndexPath(row: indexPath.row, section: indexPath.section))
             return obj
-        }
+        })
+
         self.rows = rows
         return rows
     }
@@ -116,6 +117,8 @@ open class CoreDataObserver<Type>: NSObject, NSFetchedResultsControllerDelegate 
         self.rows?.delete(paths: self.deletions)
         self.rows?.sectionInsert(sections: sectionInsertions)
         self.rows?.sectionDelete(sections: sectionDeletions)
+        
+        self.rows?.didChangeContent()
         
         self.resetChanges()
     }

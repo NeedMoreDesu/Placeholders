@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "675CBFEF201B60A700D97072"
-               BuildableName = "ExampleSimple.app"
-               BlueprintName = "ExampleSimple"
+               BlueprintIdentifier = "67471FDE20A07F6E007026CA"
+               BuildableName = "PlaceholdersCoreData.framework"
+               BlueprintName = "PlaceholdersCoreData"
                ReferencedContainer = "container:Placeholders.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -29,15 +29,6 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "675CBFEF201B60A700D97072"
-            BuildableName = "ExampleSimple.app"
-            BlueprintName = "ExampleSimple"
-            ReferencedContainer = "container:Placeholders.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -51,16 +42,15 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "675CBFEF201B60A700D97072"
-            BuildableName = "ExampleSimple.app"
-            BlueprintName = "ExampleSimple"
+            BlueprintIdentifier = "67471FDE20A07F6E007026CA"
+            BuildableName = "PlaceholdersCoreData.framework"
+            BlueprintName = "PlaceholdersCoreData"
             ReferencedContainer = "container:Placeholders.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -70,16 +60,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "675CBFEF201B60A700D97072"
-            BuildableName = "ExampleSimple.app"
-            BlueprintName = "ExampleSimple"
+            BlueprintIdentifier = "67471FDE20A07F6E007026CA"
+            BuildableName = "PlaceholdersCoreData.framework"
+            BlueprintName = "PlaceholdersCoreData"
             ReferencedContainer = "container:Placeholders.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

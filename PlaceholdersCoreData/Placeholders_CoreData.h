@@ -1,6 +1,6 @@
 //
 //  Placeholders_CoreData.h
-//  Placeholders+CoreData
+//  PlaceholdersCoreData
 //
 //  Created by Oleksii Horishnii on 5/7/18.
 //  Copyright © 2018 Oleksii Horishnii. All rights reserved.

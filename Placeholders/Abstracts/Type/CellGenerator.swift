@@ -31,7 +31,9 @@ public struct CellGenerator {
     }
 
     public var create: Creator
-    public var update: ((AnyView, UIViewController) -> ())?
+    public var update: ((AnyView, UIViewController) -> Void)?
+    public var clicked: (() -> Void)?
+    public var deleted: (() -> Void)?
     public var reuseId: String
 
     public init(create: Creator,
@@ -42,29 +44,21 @@ public struct CellGenerator {
 
     public init<Type>(create: Creator,
                       update: @escaping ((Type, UIViewController) -> ()),
-                      reuseId: String? = nil) {
+                      reuseId: String? = nil,
+                      clicked: (() -> Void)?,
+                      deleted: (() -> Void)?) {
         self.create = create
         self.update =  { (anyView: AnyView, vc: UIViewController) -> () in
             update(anyView as! Type, vc)
         }
         self.reuseId = reuseId ?? create.typeString() + String(describing: Type.self)
+        self.clicked = clicked
+        self.deleted = deleted
     }
 }
 
 extension AnyView {
     public func toCellGenerator() -> CellGenerator {
         return CellGenerator(create: CellGenerator.Creator.existingView(self), reuseId: "__staticView")
-    }
-}
-
-extension CellGenerator {
-    public func toSingleItemRowsProvider() -> RowsProvider<CellGenerator> {
-        return RowsProvider(sections: { () -> Int in
-            return 1
-        }, rows: { (_) -> Int in
-            return 1
-        }, item: { _ -> CellGenerator in
-            return self
-        })
     }
 }

@@ -118,6 +118,24 @@ open class PlaceholderTableVC: UITableViewController {
         }
         return UITableViewCell()
     }
+    
+    open override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let generator = self.rowsProvider?.item(path: indexPath) {
+            generator.clicked?()
+        }
+    }
+    
+    open override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        if let generator = self.rowsProvider?.item(path: indexPath),
+            let deletedFn = generator.deleted {
+            let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+                deletedFn()
+            }
+            
+            return [delete]
+        }
+        return []
+    }
 }
 
 extension PlaceholderTableVC: RowsUpdateDelegate {

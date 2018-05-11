@@ -29,7 +29,7 @@ public class RowsProvider<Type>: RowsUpdateDelegateProxy {
         self.updateDelegates = WeakArray<RowsUpdateDelegate>()
     }
     
-    public func map<NewType>(transform: @escaping (Type) -> NewType) -> RowsProvider<NewType> {
+    public func map<NewType>(_ transform: @escaping (Type) -> NewType) -> RowsProvider<NewType> {
         let retval = RowsProvider<NewType>(sections: self.sectionsFn,
                                            rows: self.rowsFn)
         { (path) -> NewType in
@@ -46,13 +46,15 @@ public class RowsProvider<Type>: RowsUpdateDelegateProxy {
             if section < left.sections() {
                 return left.rows(section: section)
             } else {
+                let section = section - left.sections()
                 return right.rows(section: section)
             }
         }, item: { (indexPath: IndexPath) -> SameType in
             if indexPath.section < left.sections() {
                 return left.item(path: indexPath)
             } else {
-                let path = IndexPath(row: indexPath.row, section: indexPath.section - left.sections())
+                let section = indexPath.section - left.sections()
+                let path = IndexPath(row: indexPath.row, section: section)
                 return right.item(path: path)
             }
         })
@@ -74,6 +76,9 @@ public class RowsProvider<Type>: RowsUpdateDelegateProxy {
     }
     public func item(path: IndexPath) -> Type {
         return self.itemFn(path)
+    }
+    public subscript(path: IndexPath) -> Type {
+        return self.item(path: path)
     }
 }
 
